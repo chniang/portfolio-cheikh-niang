@@ -1,9 +1,10 @@
-﻿import streamlit as st
+import streamlit as st
 from config import PROJECTS
 import base64
 
 st.set_page_config(page_title="Projets", page_icon="💼", layout="wide")
 
+@st.cache_data
 def load_css():
     with open("styles.css", encoding="utf-8") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -54,18 +55,21 @@ for idx, proj in enumerate(PROJECTS):
             if img_data:
                 with col1 if i % 2 == 1 else col2:
                     st.image(f"data:image/png;base64,{img_data}", use_container_width=True)
+    
     elif idx == 1:  # TidianeFlix
         for i in range(1, 5):
             img_data = get_image_base64(f"images/projects/tidianeflix_{i}.png")
             if img_data:
                 with col1 if i % 2 == 1 else col2:
                     st.image(f"data:image/png;base64,{img_data}", use_container_width=True)
+    
     elif idx == 2:  # SentimentScope
         for i in range(1, 5):
             img_data = get_image_base64(f"images/projects/sentimentscope_{i}.png")
             if img_data:
                 with col1 if i % 2 == 1 else col2:
                     st.image(f"data:image/png;base64,{img_data}", use_container_width=True)
+    
     elif idx == 3:  # Climat
         for i in range(1, 5):
             img_data = get_image_base64(f"images/projects/climate_change{i}.png")
