@@ -2,7 +2,7 @@ import streamlit as st
 from config import PROJECTS
 import base64
 
-st.set_page_config(page_title="Projets", page_icon="💼", layout="wide")
+st.set_page_config(page_title="Projets", page_icon="ðŸ’¼", layout="wide")
 
 @st.cache_data
 def load_css():
@@ -11,6 +11,7 @@ def load_css():
 
 load_css()
 
+@st.cache_data
 def get_image_base64(image_path):
     try:
         with open(image_path, "rb") as img_file:
@@ -18,16 +19,16 @@ def get_image_base64(image_path):
     except:
         return None
 
-st.markdown('<h1 style="color: #00D9FF; text-align: center; margin-bottom: 3rem; font-weight: 800;">💼 Mes Projets Data Science</h1>', unsafe_allow_html=True)
+st.markdown('<h1 style="color: #00D9FF; text-align: center; margin-bottom: 3rem; font-weight: 800;">ðŸ’¼ Mes Projets Data Science</h1>', unsafe_allow_html=True)
 
 for idx, proj in enumerate(PROJECTS):
     clean_title = proj['titre'].replace(proj['icon'], '').strip()
     
     # Badge
-    if proj['statut'] == "Déployé":
-        badge = '<span class="card-badge">✓ Déployé</span>'
+    if proj['statut'] == "DÃ©ployÃ©":
+        badge = '<span class="card-badge">âœ“ DÃ©ployÃ©</span>'
     else:
-        badge = '<span class="card-badge" style="background: #667EEA;">✓ Complet</span>'
+        badge = '<span class="card-badge" style="background: #667EEA;">âœ“ Complet</span>'
     
     # CARTE PROJET
     st.markdown(f'''
@@ -44,8 +45,8 @@ for idx, proj in enumerate(PROJECTS):
         with tech_cols[i]:
             st.markdown(f'<span class="tech-pill">{tech}</span>', unsafe_allow_html=True)
     
-    # Section Aperçu
-    st.markdown('<h3 style="color: #00D9FF; margin: 2rem 0 1rem 0; font-size: 1.3rem;">📸 Aperçu</h3>', unsafe_allow_html=True)
+    # Section AperÃ§u
+    st.markdown('<h3 style="color: #00D9FF; margin: 2rem 0 1rem 0; font-size: 1.3rem;">ðŸ“¸ AperÃ§u</h3>', unsafe_allow_html=True)
     
     # Images selon projet
     col1, col2 = st.columns(2)
@@ -78,11 +79,11 @@ for idx, proj in enumerate(PROJECTS):
                     st.image(f"data:image/png;base64,{img_data}", use_container_width=True)
     
     # Section Liens
-    st.markdown('<h3 style="color: #00D9FF; margin: 2rem 0 1rem 0; font-size: 1.3rem;">🔗 Liens du projet</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 style="color: #00D9FF; margin: 2rem 0 1rem 0; font-size: 1.3rem;">ðŸ”— Liens du projet</h3>', unsafe_allow_html=True)
     
     # Boutons
     cols = st.columns(len(proj['liens']))
-    label_map = {"github": "💻 GitHub", "demo": "🌐 Démo en direct", "notebook": "📓 Carnet"}
+    label_map = {"github": "ðŸ’» GitHub", "demo": "ðŸŒ DÃ©mo en direct", "notebook": "ðŸ““ Carnet"}
     for i, (key, url) in enumerate(proj['liens'].items()):
         with cols[i]:
             st.link_button(label_map.get(key, key.title()), url, use_container_width=True)
