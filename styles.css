@@ -1,0 +1,348 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.main {
+    background: #0A0E27 !important;
+    color: #E8EAED !important;
+}
+
+.stApp {
+    background: #0A0E27 !important;
+}
+
+/* ============ SIDEBAR VISIBLE ============ */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #1A1F3A 0%, #0D1117 100%) !important;
+    border-right: 3px solid rgba(0, 217, 255, 0.5) !important;
+    box-shadow: 5px 0 20px rgba(0, 217, 255, 0.3) !important;
+    padding-top: 1rem !important;
+}
+
+/* ============ BOUTONS RÉDUITS ============ */
+[data-testid="stSidebarNav"] li {
+    background: #1A1F3A !important;
+    border-radius: 10px !important;
+    border: 2px solid rgba(0, 217, 255, 0.4) !important;
+    margin: 0.5rem 0.5rem !important;
+    padding: 0 !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+}
+
+/* ============ TEXTE BOUTON - COMPACT ============ */
+[data-testid="stSidebarNav"] a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.6rem !important;
+    width: 100% !important;
+    padding: 0.8rem 0.5rem !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 1.05rem !important;
+    text-shadow: none !important;
+    text-decoration: none !important;
+}
+
+[data-testid="stSidebarNav"] a *,
+[data-testid="stSidebarNav"] span {
+    color: #FFFFFF !important;
+}
+
+/* ICÔNES - PLUS PETITES */
+[data-testid="stSidebarNav"] li:nth-child(1) a::before {
+    content: "🏠";
+    font-size: 1.3rem;
+}
+
+[data-testid="stSidebarNav"] li:nth-child(2) a::before {
+    content: "👤";
+    font-size: 1.3rem;
+}
+
+[data-testid="stSidebarNav"] li:nth-child(3) a::before {
+    content: "💼";
+    font-size: 1.3rem;
+}
+
+[data-testid="stSidebarNav"] li:nth-child(4) a::before {
+    content: "🎯";
+    font-size: 1.3rem;
+}
+
+[data-testid="stSidebarNav"] li:nth-child(5) a::before {
+    content: "📬";
+    font-size: 1.3rem;
+}
+
+/* ============ HOVER ============ */
+[data-testid="stSidebarNav"] li:hover {
+    background: rgba(0, 217, 255, 0.15) !important;
+    border-color: #00D9FF !important;
+    transform: translateX(8px) scale(1.02) !important;
+    box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5) !important;
+}
+
+/* ============ PAGE ACTIVE ============ */
+[data-testid="stSidebarNav"] li[aria-current="page"] {
+    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
+    border: 3px solid #00D9FF !important;
+    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.7) !important;
+}
+
+[data-testid="stSidebarNav"] li[aria-current="page"] a {
+    color: #FFFFFF !important;
+    font-weight: 900 !important;
+}
+
+/* ============ BOUTONS STREAMLIT - TEXTE BLEU CLAIR ============ */
+.stButton > button {
+    background: rgba(26, 31, 58, 0.9) !important;
+    color: #00D9FF !important;
+    border: 2px solid #00D9FF !important;
+    border-radius: 12px !important;
+    padding: 0.7rem 1.8rem !important;
+    font-weight: 900 !important;
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 0 0 15px rgba(0, 217, 255, 0.8) !important;
+}
+
+.stButton > button span {
+    color: #00D9FF !important;
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
+    color: #FFFFFF !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 35px rgba(0, 217, 255, 0.7) !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9) !important;
+}
+
+.stButton > button:hover span {
+    color: #FFFFFF !important;
+}
+
+/* ============ CARTES ============ */
+.equal-card {
+    background: #1A1F3A !important;
+    padding: 2rem !important;
+    border-radius: 15px !important;
+    border: 2px solid rgba(0, 217, 255, 0.3) !important;
+    margin: 2rem 0 !important;
+    height: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.equal-card:hover {
+    border-color: #00D9FF !important;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.5) !important;
+}
+
+.about-card, .skill-card, .project-card {
+    background: #1A1F3A !important;
+    padding: 2.5rem !important;
+    border-radius: 15px !important;
+    border: 2px solid rgba(0, 217, 255, 0.3) !important;
+    margin: 2rem 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.about-card:hover, .skill-card:hover, .project-card:hover {
+    border-color: #00D9FF !important;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 20px 50px rgba(0, 217, 255, 0.4) !important;
+}
+
+.about-title, .skill-title, .project-title, .card-title, h2, h3 {
+    color: #FFFFFF !important;
+    font-size: 1.9rem !important;
+    font-weight: 900 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.about-text, .card-desc, p {
+    color: #D5DAE1 !important;
+    font-size: 1.08rem !important;
+    line-height: 2 !important;
+}
+
+.profile-img {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 50% !important;
+    border: 4px solid #00D9FF !important;
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.4) !important;
+    object-fit: cover !important;
+    display: block !important;
+    margin: 2rem auto !important;
+}
+
+.hero-name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667EEA 0%, #00D9FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 1.5rem;
+    color: #B8C5D6;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.hero-quote {
+    font-size: 1rem;
+    color: #8B9DC3;
+    font-style: italic;
+    max-width: 600px;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.metric-card {
+    background: #1A1F3A;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    border-color: #00D9FF;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+}
+
+.metric-value {
+    font-size: 2.5rem;
+    color: #00D9FF;
+    font-weight: 700;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    color: #B8C5D6;
+    margin-top: 0.5rem;
+}
+
+.card-badge {
+    display: inline-block;
+    background: #10B981;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+    font-weight: 800;
+}
+
+.tech-pill {
+    display: inline-block;
+    background: rgba(102, 126, 234, 0.5);
+    color: #FFFFFF;
+    padding: 0.5rem 1.2rem;
+    border-radius: 15px;
+    margin: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.tech-pill:hover {
+    background: rgba(0, 217, 255, 0.7);
+    transform: scale(1.15);
+}
+
+
+/* ============ LINK BUTTONS (GitHub, Démo, LinkedIn) ============ */
+a[kind="primary"], 
+a[kind="secondary"],
+[data-testid="stLinkButton"] a,
+.stLinkButton > a {
+    background: rgba(26, 31, 58, 0.9) !important;
+    color: #00D9FF !important;
+    border: 2px solid #00D9FF !important;
+    border-radius: 12px !important;
+    padding: 0.7rem 1.8rem !important;
+    font-weight: 900 !important;
+    font-size: 1.1rem !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 0 0 15px rgba(0, 217, 255, 0.8) !important;
+}
+
+/* Forcer TOUS les éléments enfants en bleu */
+a[kind="primary"] *,
+a[kind="secondary"] *,
+[data-testid="stLinkButton"] a *,
+.stLinkButton > a * {
+    color: #00D9FF !important;
+}
+
+/* Hover link buttons */
+a[kind="primary"]:hover,
+a[kind="secondary"]:hover,
+[data-testid="stLinkButton"] a:hover,
+.stLinkButton > a:hover {
+    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
+    color: #FFFFFF !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 12px 35px rgba(0, 217, 255, 0.7) !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.9) !important;
+}
+
+a[kind="primary"]:hover *,
+a[kind="secondary"]:hover *,
+[data-testid="stLinkButton"] a:hover *,
+.stLinkButton > a:hover * {
+    color: #FFFFFF !important;
+}
+
+
+/* ============ BOUTONS TÉLÉCHARGEMENT (download_button) ============ */
+.stDownloadButton > button {
+    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
+    color: #FFFFFF !important;
+    border: 2px solid #00D9FF !important;
+    border-radius: 12px !important;
+    padding: 0.8rem 2rem !important;
+    font-weight: 900 !important;
+    font-size: 1.15rem !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3) !important;
+}
+
+.stDownloadButton > button:hover {
+    background: linear-gradient(135deg, #667EEA 0%, #00D9FF 100%) !important;
+    transform: scale(1.08) !important;
+    box-shadow: 0 12px 35px rgba(0, 217, 255, 0.7) !important;
+}
+
+header[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+#MainMenu, footer {
+    visibility: hidden;
+}
+
+
+
