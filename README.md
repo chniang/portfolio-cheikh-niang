@@ -1,6 +1,6 @@
 ---
-title: Portfolio Cheikh Niang 
-emoji: ðŸ“Š
+title: Portfolio Cheikh Niang
+emoji: 📊
 colorFrom: blue
 colorTo: purple
 sdk: docker
