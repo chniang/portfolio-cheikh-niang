@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
 
+/* ============ SIDEBAR - COMPORTEMENT NATIF ============ */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #1A1F3A 0%, #0D1117 100%) !important;
+}
+
+[data-testid="stSidebarNav"] li {
+    margin: 0.3rem 0.5rem !important;
+}
+
+[data-testid="stSidebarNav"] a {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    padding: 0.8rem !important;
+}
+
 * {
     font-family: 'Inter', sans-serif;
 }
@@ -13,86 +28,7 @@
     background: #0A0E27 !important;
 }
 
-/* ============ SIDEBAR VISIBLE ============ */
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #1A1F3A 0%, #0D1117 100%) !important;
-    border-right: 3px solid rgba(0, 217, 255, 0.5) !important;
-    box-shadow: 5px 0 20px rgba(0, 217, 255, 0.3) !important;
-    padding-top: 1rem !important;
-}
 
-/* ============ BOUTONS RÉDUITS ============ */
-[data-testid="stSidebarNav"] li {
-    background: #1A1F3A !important;
-    border-radius: 10px !important;
-    border: 2px solid rgba(0, 217, 255, 0.4) !important;
-    margin: 0.5rem 0.5rem !important;
-    padding: 0 !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3) !important;
-    transition: all 0.3s ease !important;
-    cursor: pointer !important;
-}
-
-/* ============ TEXTE BOUTON - COMPACT ============ */
-[data-testid="stSidebarNav"] a {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 0.6rem !important;
-    width: 100% !important;
-    padding: 0.8rem 0.5rem !important;
-    color: #FFFFFF !important;
-    font-weight: 700 !important;
-    font-size: 1.05rem !important;
-    text-shadow: none !important;
-    text-decoration: none !important;
-}
-
-[data-testid="stSidebarNav"] a *,
-[data-testid="stSidebarNav"] span {
-    color: #FFFFFF !important;
-}
-
-/* ICÔNES - PLUS PETITES */
-[data-testid="stSidebarNav"] li:nth-child(1) a::before {
-    content: "🏠";
-    font-size: 1.3rem;
-}
-
-[data-testid="stSidebarNav"] li:nth-child(2) a::before {
-    content: "👤";
-    font-size: 1.3rem;
-}
-
-[data-testid="stSidebarNav"] li:nth-child(3) a::before {
-    content: "💼";
-    font-size: 1.3rem;
-}
-
-[data-testid="stSidebarNav"] li:nth-child(4) a::before {
-    content: "🎯";
-    font-size: 1.3rem;
-}
-
-[data-testid="stSidebarNav"] li:nth-child(5) a::before {
-    content: "📬";
-    font-size: 1.3rem;
-}
-
-/* ============ HOVER ============ */
-[data-testid="stSidebarNav"] li:hover {
-    background: rgba(0, 217, 255, 0.15) !important;
-    border-color: #00D9FF !important;
-    transform: translateX(8px) scale(1.02) !important;
-    box-shadow: 0 6px 20px rgba(0, 217, 255, 0.5) !important;
-}
-
-/* ============ PAGE ACTIVE ============ */
-[data-testid="stSidebarNav"] li[aria-current="page"] {
-    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
-    border: 3px solid #00D9FF !important;
-    box-shadow: 0 8px 30px rgba(0, 217, 255, 0.7) !important;
-}
 
 [data-testid="stSidebarNav"] li[aria-current="page"] a {
     color: #FFFFFF !important;
@@ -271,7 +207,7 @@
 }
 
 
-/* ============ LINK BUTTONS (GitHub, Démo, LinkedIn) ============ */
+/* ============ LINK BUTTONS (GitHub, DÃ©mo, LinkedIn) ============ */
 a[kind="primary"], 
 a[kind="secondary"],
 [data-testid="stLinkButton"] a,
@@ -289,7 +225,7 @@ a[kind="secondary"],
     text-shadow: 0 0 15px rgba(0, 217, 255, 0.8) !important;
 }
 
-/* Forcer TOUS les éléments enfants en bleu */
+/* Forcer TOUS les Ã©lÃ©ments enfants en bleu */
 a[kind="primary"] *,
 a[kind="secondary"] *,
 [data-testid="stLinkButton"] a *,
@@ -317,7 +253,7 @@ a[kind="secondary"]:hover *,
 }
 
 
-/* ============ BOUTONS TÉLÉCHARGEMENT (download_button) ============ */
+/* ============ BOUTONS TÃ‰LÃ‰CHARGEMENT (download_button) ============ */
 .stDownloadButton > button {
     background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
     color: #FFFFFF !important;
