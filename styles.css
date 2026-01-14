@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
 
 * {
     font-family: 'Inter', sans-serif;
@@ -342,22 +342,4 @@ header[data-testid="stHeader"] {
 
 #MainMenu, footer {
     visibility: hidden;
-}
-
-
-
-
-
-/* ============ SIDEBAR FIXE ============ */
-[data-testid="stSidebar"] {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    height: 100vh !important;
-    overflow-y: auto !important;
-    z-index: 999 !important;
-}
-
-[data-testid="stSidebar"] > div:first-child {
-    height: 100vh !important;
 }
