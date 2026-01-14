@@ -1,10 +1,29 @@
 import streamlit as st
 from config import PROJECTS
+import base64
 
 st.set_page_config(page_title="Projets", page_icon="💼", layout="wide")
 
 with open("styles.css", encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# CHARGER TOUTES LES IMAGES UNE SEULE FOIS AU DÉBUT
+if "images_cache" not in st.session_state:
+    st.session_state.images_cache = {}
+    
+    all_images = []
+    for i in range(1, 5):
+        all_images.append(f"images/projects/dakar_{i}.png")
+        all_images.append(f"images/projects/tidianeflix_{i}.png")
+        all_images.append(f"images/projects/sentimentscope_{i}.png")
+        all_images.append(f"images/projects/climate_change{i}.png")
+    
+    for img_path in all_images:
+        try:
+            with open(img_path, "rb") as f:
+                st.session_state.images_cache[img_path] = base64.b64encode(f.read()).decode()
+        except:
+            pass
 
 html = '<h1 style="color: #00D9FF; text-align: center; margin-bottom: 3rem; font-weight: 800;">💼 Mes Projets Data Science</h1>'
 
@@ -28,14 +47,18 @@ for idx, proj in enumerate(PROJECTS):
     prefix = ["dakar", "tidianeflix", "sentimentscope", "climate_change"][idx]
     for i in range(1, 5):
         suffix = f"_{i}" if idx < 3 else str(i)
-        html += f'<img src="app/static/images/projects/{prefix}{suffix}.png" style="width: 100%; border-radius: 8px; border: 2px solid rgba(0,217,255,0.3);">'
+        img_path = f"images/projects/{prefix}{suffix}.png"
+        
+        if img_path in st.session_state.images_cache:
+            img_b64 = st.session_state.images_cache[img_path]
+            html += f'<img src="data:image/png;base64,{img_b64}" style="width: 100%; border-radius: 8px; border: 2px solid rgba(0,217,255,0.3);" loading="lazy">'
     
     html += '</div><h3 style="color: #00D9FF; margin: 1.5rem 0 1rem;">🔗 Liens du projet</h3>'
-    html += '<div style="display: flex; gap: 1rem;">'
+    html += '<div style="display: flex; gap: 1rem; flex-wrap: wrap;">'
     
     labels = {"github": "💻 GitHub", "demo": "🌐 Démo en direct", "notebook": "📓 Carnet"}
     for key, url in proj["liens"].items():
-        html += f'<a href="{url}" target="_blank" class="stButton"><span>{labels.get(key, key)}</span></a>'
+        html += f'<a href="{url}" target="_blank" style="flex: 1; min-width: 150px; background: rgba(26,31,58,0.9); color: #00D9FF; border: 2px solid #00D9FF; border-radius: 12px; padding: 0.8rem; text-align: center; text-decoration: none; font-weight: 700; transition: all 0.3s;">{labels.get(key, key)}</a>'
     
     html += '</div></div>'
     if idx < len(PROJECTS) - 1:
