@@ -322,3 +322,16 @@ header[data-testid="stHeader"] {
     height: 100vh !important;
     overflow-y: auto !important;
 }
+
+
+/* ============ HOVER BOUTONS LIENS PROJETS ============ */
+.project-card a {
+    transition: all 0.3s ease !important;
+}
+
+.project-card a:hover {
+    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%) !important;
+    color: #FFFFFF !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.6) !important;
+}
