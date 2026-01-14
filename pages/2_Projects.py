@@ -51,15 +51,15 @@ for idx, proj in enumerate(PROJECTS):
         except:
             pass
     
-    # Liens - HTML SIMPLIFIÉ
+    # Liens avec VRAIS BOUTONS
     st.markdown('<h3 style="color: #00D9FF; margin: 2rem 0 1rem 0;">🔗 Liens du projet</h3>', unsafe_allow_html=True)
     
+    cols = st.columns(len(proj['liens']))
     label_map = {"github": "💻 GitHub", "demo": "🌐 Démo en direct", "notebook": "📓 Carnet"}
     
-    # Construire les boutons ligne par ligne
-    for key, url in proj['liens'].items():
-        label = label_map.get(key, key.title())
-        st.markdown(f'<a href="{url}" target="_blank" class="stLinkButton"><span>{label}</span></a>', unsafe_allow_html=True)
+    for i, (key, url) in enumerate(proj['liens'].items()):
+        with cols[i]:
+            st.link_button(label_map.get(key, key.title()), url, use_container_width=True)
     
     if idx < len(PROJECTS) - 1:
         st.markdown("---")
