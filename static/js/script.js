@@ -53,3 +53,53 @@ function initScrollAnimations() {
         observer.observe(element);
     });
 }
+// Gestion du formulaire de contact
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contact-form");
+    const status = document.getElementById("form-status");
+    
+    if (form) {
+        form.addEventListener("submit", async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const submitBtn = form.querySelector(".submit-btn");
+            const originalBtnText = submitBtn.textContent;
+            
+            // Désactiver le bouton pendant l'envoi
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Envoi en cours... ⏳";
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    status.className = "success";
+                    status.textContent = "✅ Message envoyé avec succès ! Je vous répondrai bientôt.";
+                    form.reset();
+                } else {
+                    status.className = "error";
+                    status.textContent = "❌ Erreur lors de l'envoi. Veuillez réessayer.";
+                }
+            } catch (error) {
+                status.className = "error";
+                status.textContent = "❌ Erreur réseau. Veuillez vérifier votre connexion.";
+            }
+            
+            // Réactiver le bouton
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+            
+            // Masquer le message après 5 secondes
+            setTimeout(() => {
+                status.style.display = "none";
+            }, 5000);
+        });
+    }
+});

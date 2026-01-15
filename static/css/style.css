@@ -520,3 +520,107 @@ body {
     opacity: 1;
     transform: scale(1);
 }
+
+
+/* ============ FORMULAIRE DE CONTACT ============ */
+.contact-form-wrapper {
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #1A1F3A;
+    padding: 3rem;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 217, 255, 0.3);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: #00D9FF;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(10, 14, 39, 0.8);
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    border-radius: 10px;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-family: "Inter", sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00D9FF;
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #8B9DC3;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #00D9FF 0%, #667EEA 100%);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 217, 255, 0.5);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+#form-status {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 700;
+    display: none;
+}
+
+#form-status.success {
+    display: block;
+    background: rgba(16, 185, 129, 0.2);
+    border: 2px solid #10B981;
+    color: #10B981;
+}
+
+#form-status.error {
+    display: block;
+    background: rgba(239, 68, 68, 0.2);
+    border: 2px solid #EF4444;
+    color: #EF4444;
+}
