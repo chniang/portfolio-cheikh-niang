@@ -20,6 +20,36 @@ document.addEventListener("DOMContentLoaded", function() {
             
             // Scroll vers le haut
             window.scrollTo({ top: 0, behavior: "smooth" });
+            
+            // Réinitialiser les animations pour la nouvelle page
+            setTimeout(() => {
+                initScrollAnimations();
+            }, 100);
         });
     });
+    
+    // Initialiser les animations au chargement
+    initScrollAnimations();
 });
+
+// Fonction pour détecter les éléments visibles et les animer
+function initScrollAnimations() {
+    const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    animatedElements.forEach(element => {
+        // Retirer la classe animated pour réinitialiser
+        element.classList.remove('animated');
+        observer.observe(element);
+    });
+}
