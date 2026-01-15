@@ -1,29 +1,35 @@
 import streamlit as st
 from config import PROJECTS
 import base64
+from pathlib import Path
 
 st.set_page_config(page_title="Projets", page_icon="💼", layout="wide")
 
 with open("styles.css", encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# CHARGER TOUTES LES IMAGES UNE SEULE FOIS AU DÉBUT
-if "images_cache" not in st.session_state:
-    st.session_state.images_cache = {}
+# Cache persistent avec fichier
+@st.cache_data(ttl=3600)
+def load_all_images():
+    cache = {}
+    images = [
+        *[f"images/projects/dakar_{i}.png" for i in range(1, 5)],
+        *[f"images/projects/tidianeflix_{i}.png" for i in range(1, 5)],
+        *[f"images/projects/sentimentscope_{i}.png" for i in range(1, 5)],
+        *[f"images/projects/climate_change{i}.png" for i in range(1, 5)]
+    ]
     
-    all_images = []
-    for i in range(1, 5):
-        all_images.append(f"images/projects/dakar_{i}.png")
-        all_images.append(f"images/projects/tidianeflix_{i}.png")
-        all_images.append(f"images/projects/sentimentscope_{i}.png")
-        all_images.append(f"images/projects/climate_change{i}.png")
-    
-    for img_path in all_images:
+    for img_path in images:
         try:
             with open(img_path, "rb") as f:
-                st.session_state.images_cache[img_path] = base64.b64encode(f.read()).decode()
+                cache[img_path] = base64.b64encode(f.read()).decode()
         except:
-            pass
+            cache[img_path] = None
+    
+    return cache
+
+# Charger AVEC cache Streamlit
+images_cache = load_all_images()
 
 html = '<h1 style="color: #00D9FF; text-align: center; margin-bottom: 3rem; font-weight: 800;">💼 Mes Projets Data Science</h1>'
 
@@ -49,9 +55,9 @@ for idx, proj in enumerate(PROJECTS):
         suffix = f"_{i}" if idx < 3 else str(i)
         img_path = f"images/projects/{prefix}{suffix}.png"
         
-        if img_path in st.session_state.images_cache:
-            img_b64 = st.session_state.images_cache[img_path]
-            html += f'<img src="data:image/png;base64,{img_b64}" style="width: 100%; border-radius: 8px; border: 2px solid rgba(0,217,255,0.3);" loading="lazy">'
+        img_b64 = images_cache.get(img_path)
+        if img_b64:
+            html += f'<img src="data:image/png;base64,{img_b64}" style="width: 100%; border-radius: 8px; border: 2px solid rgba(0,217,255,0.3);" loading="lazy" decoding="async">'
     
     html += '</div><h3 style="color: #00D9FF; margin: 1.5rem 0 1rem;">🔗 Liens du projet</h3>'
     html += '<div style="display: flex; gap: 1rem; flex-wrap: wrap;">'

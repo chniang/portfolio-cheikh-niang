@@ -335,3 +335,12 @@ header[data-testid="stHeader"] {
     transform: scale(1.05) !important;
     box-shadow: 0 8px 25px rgba(0, 217, 255, 0.6) !important;
 }
+
+
+/* SIDEBAR STICKY - RESTE EN HAUT SANS COUVRIR */
+[data-testid="stSidebar"] [data-testid="stSidebarUserContent"] {
+    position: sticky !important;
+    top: 0 !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+}
