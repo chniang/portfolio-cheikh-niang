@@ -298,7 +298,43 @@
         <section class="page" id="contact">
             <h1 class="page-title">📧 Contact</h1>
             
-            <div class="contact-content">
+
+            <!-- Formulaire de contact -->
+            <div class="contact-form-wrapper animate-on-scroll">
+                <h2 style="color: #00D9FF; text-align: center; margin-bottom: 1rem;">✉️ Envoyez-moi un message</h2>
+                <p style="text-align: center; color: #8B9DC3; margin-bottom: 2rem;">Vous avez une question ou une opportunité ? N'hésitez pas à me contacter !</p>
+                
+                <form id="contact-form" action="https://formspree.io/f/xnjqbrpa" method="POST" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Écrivez votre message ici..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer le message 📤</button>
+                    
+                    <div id="form-status"></div>
+                </form>
+            </div>
+            
+            <hr class="divider" style="margin: 3rem 0;">
+            
+            <h2 style="color: #00D9FF; text-align: center; margin: 2rem 0;">📱 Autres moyens de contact</h2>
+                        <div class="contact-content">
                 <div class="contact-card animate-on-scroll">
                     <h2>📧 Email</h2>
                     <a href="mailto:cheikhniang159@gmail.com">cheikhniang159@gmail.com</a>
