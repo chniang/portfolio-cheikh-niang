@@ -33,15 +33,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             // Scroll vers le haut
             window.scrollTo({ top: 0, behavior: "smooth" });
-
-            // Réinitialiser les animations pour la nouvelle page
-            setTimeout(() => {
-                initScrollAnimations();
-            }, 100);
         });
     });
 
-    // Initialiser les animations au chargement
+    // Initialiser les animations UNE SEULE FOIS au chargement
     initScrollAnimations();
 });
 
@@ -84,24 +79,29 @@ function createMobileMenuButton() {
     });
 }
 
-// Fonction pour détecter les éléments visibles et les animer
+// Fonction pour détecter les éléments visibles et les animer - VERSION FIXÉE
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom'); 
+    
+    // Options optimisées pour mobile
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                // Ajouter la classe animated
                 entry.target.classList.add('animated');
+                // NE PLUS OBSERVER cet élément après animation (FIX CRITIQUE!)
+                observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    }, observerOptions);
 
+    // Observer tous les éléments
     animatedElements.forEach(element => {
-        // Retirer la classe animated pour réinitialiser
-        element.classList.remove('animated');
         observer.observe(element);
     });
 }
