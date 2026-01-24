@@ -18,3 +18,8 @@ build/
 app_BACKUP_*.py
 app_AVANT_*.py
 FIX_*.ps1
+
+# Backup files
+static/css/style_backup.css
+static/js/script_backup.js
+structure.txt
