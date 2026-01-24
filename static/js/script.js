@@ -1,4 +1,7 @@
-﻿// Navigation entre les pages
+﻿// Variable globale pour stocker l'observer
+let scrollObserver = null;
+
+// Navigation entre les pages
 document.addEventListener("DOMContentLoaded", function() {
     const navButtons = document.querySelectorAll(".nav-btn");
     const pages = document.querySelectorAll(".page");
@@ -32,7 +35,18 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Scroll vers le haut
-            window.scrollTo(0, 0); // Pas de smooth scroll sur mobile
+            window.scrollTo(0, 0);
+            
+            // CRITICAL: Nettoyer l'ancien observer avant d'en créer un nouveau
+            if (scrollObserver) {
+                scrollObserver.disconnect();
+                scrollObserver = null;
+            }
+            
+            // Réinitialiser les animations pour la nouvelle page
+            setTimeout(() => {
+                initScrollAnimations();
+            }, 100);
         });
     });
 
@@ -79,7 +93,7 @@ function createMobileMenuButton() {
     });
 }
 
-// Fonction pour détecter les éléments visibles et les animer - VERSION MOBILE OPTIMISÉE
+// Fonction pour détecter les éléments visibles et les animer - VERSION FIXÉE
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom'); 
     
@@ -88,7 +102,7 @@ function initScrollAnimations() {
         animatedElements.forEach(element => {
             element.classList.add('animated');
         });
-        return; // Arrêter ici pour mobile
+        return; // Arrêter ici pour mobile - PAS D'OBSERVER
     }
     
     // Sur desktop : utiliser l'observer normalement
@@ -97,17 +111,17 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver((entries) => {
+    scrollObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
+                scrollObserver.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     animatedElements.forEach(element => {
-        observer.observe(element);
+        scrollObserver.observe(element);
     });
 }
 
@@ -156,5 +170,3 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
-
-
