@@ -1,5 +1,5 @@
-﻿// Variable globale pour stocker l'observer
-let scrollObserver = null;
+﻿// Détection mobile
+const isMobile = window.innerWidth <= 768;
 
 // Navigation entre les pages
 document.addEventListener("DOMContentLoaded", function() {
@@ -12,120 +12,72 @@ document.addEventListener("DOMContentLoaded", function() {
 
     navButtons.forEach(button => {
         button.addEventListener("click", function() {
-            // Retirer la classe active de tous les boutons
             navButtons.forEach(btn => btn.classList.remove("active"));
-
-            // Ajouter la classe active au bouton cliqué
             this.classList.add("active");
-
-            // Cacher toutes les pages
             pages.forEach(page => page.classList.remove("active"));
-
-            // Afficher la page correspondante
+            
             const pageId = this.getAttribute("data-page");
             document.getElementById(pageId).classList.add("active");
 
-            // Sur mobile, fermer la sidebar après clic
-            if (window.innerWidth <= 768) {
+            if (isMobile) {
                 sidebar.classList.remove("active");
                 const menuToggle = document.querySelector(".menu-toggle");
-                if (menuToggle) {
-                    menuToggle.classList.remove("active");
-                }
+                if (menuToggle) menuToggle.classList.remove("active");
             }
 
-            // Scroll vers le haut
             window.scrollTo(0, 0);
-            
-            // CRITICAL: Nettoyer l'ancien observer avant d'en créer un nouveau
-            if (scrollObserver) {
-                scrollObserver.disconnect();
-                scrollObserver = null;
-            }
-            
-            // Réinitialiser les animations pour la nouvelle page
-            setTimeout(() => {
-                initScrollAnimations();
-            }, 100);
         });
     });
 
-    // Initialiser les animations UNE SEULE FOIS au chargement
-    initScrollAnimations();
+    // Sur mobile : activer TOUTES les animations immédiatement
+    if (isMobile) {
+        document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom').forEach(el => {
+            el.classList.add('animated');
+        });
+    } else {
+        // Sur desktop uniquement
+        initScrollAnimations();
+    }
 });
 
-// Fonction pour créer le bouton hamburger mobile
 function createMobileMenuButton() {
     const menuToggle = document.createElement("button");
     menuToggle.className = "menu-toggle";
-    menuToggle.innerHTML = `
-        <span></span>
-        <span></span>
-        <span></span>
-    `;
-    
+    menuToggle.innerHTML = '<span></span><span></span><span></span>';
     document.body.appendChild(menuToggle);
 
     const sidebar = document.getElementById("sidebar");
-
-    // Toggle menu au clic
     menuToggle.addEventListener("click", function() {
         this.classList.toggle("active");
         sidebar.classList.toggle("active");
     });
 
-    // Fermer le menu si on clique en dehors
     document.addEventListener("click", function(e) {
-        if (window.innerWidth <= 768) {
-            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
-                sidebar.classList.remove("active");
-                menuToggle.classList.remove("active");
-            }
-        }
-    });
-
-    // Gérer le redimensionnement de la fenêtre
-    window.addEventListener("resize", function() {
-        if (window.innerWidth > 768) {
+        if (isMobile && !sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
             sidebar.classList.remove("active");
             menuToggle.classList.remove("active");
         }
     });
 }
 
-// Fonction pour détecter les éléments visibles et les animer - VERSION FIXÉE
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom'); 
+    // Desktop seulement
+    if (isMobile) return;
     
-    // Sur mobile : activer tous les éléments immédiatement SANS observer
-    if (window.innerWidth <= 768) {
-        animatedElements.forEach(element => {
-            element.classList.add('animated');
-        });
-        return; // Arrêter ici pour mobile - PAS D'OBSERVER
-    }
-    
-    // Sur desktop : utiliser l'observer normalement
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    scrollObserver = new IntersectionObserver((entries) => {
+    const elements = document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom');
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animated');
-                scrollObserver.unobserve(entry.target);
+                observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    animatedElements.forEach(element => {
-        scrollObserver.observe(element);
-    });
+    elements.forEach(el => observer.observe(el));
 }
 
-// Gestion du formulaire de contact
+// Formulaire (même code que avant)
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("contact-form");
     const status = document.getElementById("form-status");
@@ -133,12 +85,10 @@ document.addEventListener("DOMContentLoaded", function() {
     if (form) {
         form.addEventListener("submit", async function(e) {
             e.preventDefault();
-
             const formData = new FormData(form);
             const submitBtn = form.querySelector(".submit-btn");
             const originalBtnText = submitBtn.textContent;
 
-            // Désactiver le bouton pendant l'envoi
             submitBtn.disabled = true;
             submitBtn.textContent = "Envoi en cours... ⏳";
 
@@ -146,24 +96,21 @@ document.addEventListener("DOMContentLoaded", function() {
                 const response = await fetch(form.action, {
                     method: form.method,
                     body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
                     status.className = "success";
-                    status.textContent = "✅ Message envoyé avec succès ! Je vous répondrai bientôt.";
+                    status.textContent = "✅ Message envoyé avec succès !";
                     form.reset();
                 } else {
                     status.className = "error";
-                    status.textContent = "❌ Une erreur s'est produite. Réessayez ou contactez-moi directement par email.";
+                    status.textContent = "❌ Erreur. Réessayez.";
                 }
             } catch (error) {
                 status.className = "error";
-                status.textContent = "❌ Erreur réseau. Vérifiez votre connexion et réessayez.";
+                status.textContent = "❌ Erreur réseau.";
             } finally {
-                // Réactiver le bouton
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalBtnText;
             }
