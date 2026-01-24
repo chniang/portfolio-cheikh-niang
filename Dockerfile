@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+﻿FROM python:3.11-slim
 
 WORKDIR /app
 
@@ -9,4 +9,5 @@ COPY . .
 
 EXPOSE 7860
 
-CMD ["python", "app.py"]
+# Utiliser Gunicorn au lieu de Flask dev server
+CMD ["gunicorn", "--bind", "0.0.0.0:7860", "--workers", "2", "--threads", "4", "--timeout", "120", "app:app"]
