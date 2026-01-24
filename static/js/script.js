@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Scroll vers le haut
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            window.scrollTo(0, 0); // Pas de smooth scroll sur mobile
         });
     });
 
@@ -156,4 +156,5 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
 

@@ -1,20 +1,66 @@
-﻿/* DÉSACTIVATION TOTALE DES ANIMATIONS SUR MOBILE - Performance maximale */
+﻿/* OPTIMISATION RADICALE MOBILE - Performance maximale */
 @media (max-width: 768px) {
-    /* Supprimer TOUTES les animations et transitions */
+    /* DÉSACTIVER TOUTES LES ANIMATIONS */
     *,
     *::before,
     *::after {
         animation: none !important;
         transition: none !important;
+        will-change: auto !important;
     }
     
-    /* Garder seulement la transition du menu */
-    .sidebar,
-    .menu-toggle {
+    /* Garder UNIQUEMENT la transition du menu */
+    .sidebar {
         transition: transform 0.3s ease !important;
     }
     
-    /* Forcer tous les éléments animés à être visibles immédiatement */
+    .menu-toggle span {
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Désactiver tous les effets visuels lourds */
+    .metric-card,
+    .home-project-card,
+    .project-card,
+    .about-card,
+    .skill-card,
+    .contact-card,
+    .nav-btn,
+    .project-link,
+    .sidebar {
+        box-shadow: none !important;
+        background: #1A1F3A !important;
+        border: 1px solid rgba(0, 217, 255, 0.3) !important;
+    }
+    
+    /* Simplifier les gradients */
+    .nav-btn.active,
+    .submit-btn {
+        background: #00D9FF !important;
+    }
+    
+    .menu-toggle {
+        background: #00D9FF !important;
+    }
+    
+    /* Désactiver tous les hover effects */
+    .nav-btn:hover,
+    .metric-card:hover,
+    .home-project-card:hover,
+    .project-card:hover,
+    .about-card:hover,
+    .skill-card:hover,
+    .contact-card:hover,
+    .project-link:hover,
+    .tech-pill:hover,
+    .cv-link:hover,
+    .contact-card a:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        background: inherit !important;
+    }
+    
+    /* Forcer tous les éléments animés à être visibles */
     .animate-on-scroll,
     .animate-from-left,
     .animate-from-right,
@@ -23,10 +69,50 @@
         transform: none !important;
     }
     
-    /* Activer le scroll natif optimisé */
-    body,
+    /* Optimisation du scroll natif */
+    body {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: scroll;
+        scroll-behavior: auto; /* Pas de smooth scroll */
+    }
+    
     .main-content {
         -webkit-overflow-scrolling: touch;
-        overflow-y: auto;
+        overflow-y: visible;
+    }
+    
+    /* Optimisation des images */
+    img {
+        will-change: auto;
+        transform: none !important;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    .project-images img:hover {
+        transform: none !important;
+        border-color: rgba(0, 217, 255, 0.3) !important;
+    }
+    
+    /* Désactiver les transitions sur les inputs */
+    input,
+    textarea,
+    button {
+        transition: none !important;
+    }
+    
+    input:focus,
+    textarea:focus {
+        transition: none !important;
+    }
+}
+
+/* Optimisation GPU */
+@media (max-width: 768px) {
+    body,
+    .main-content,
+    .page {
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
     }
 }
