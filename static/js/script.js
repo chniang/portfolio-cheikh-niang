@@ -79,11 +79,19 @@ function createMobileMenuButton() {
     });
 }
 
-// Fonction pour détecter les éléments visibles et les animer - VERSION FIXÉE
+// Fonction pour détecter les éléments visibles et les animer - VERSION MOBILE OPTIMISÉE
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll('.animate-on-scroll, .animate-from-left, .animate-from-right, .animate-zoom'); 
     
-    // Options optimisées pour mobile
+    // Sur mobile : activer tous les éléments immédiatement SANS observer
+    if (window.innerWidth <= 768) {
+        animatedElements.forEach(element => {
+            element.classList.add('animated');
+        });
+        return; // Arrêter ici pour mobile
+    }
+    
+    // Sur desktop : utiliser l'observer normalement
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -92,15 +100,12 @@ function initScrollAnimations() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Ajouter la classe animated
                 entry.target.classList.add('animated');
-                // NE PLUS OBSERVER cet élément après animation (FIX CRITIQUE!)
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observer tous les éléments
     animatedElements.forEach(element => {
         observer.observe(element);
     });
@@ -151,3 +156,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
