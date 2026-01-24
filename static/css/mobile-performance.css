@@ -1,0 +1,32 @@
+﻿/* DÉSACTIVATION TOTALE DES ANIMATIONS SUR MOBILE - Performance maximale */
+@media (max-width: 768px) {
+    /* Supprimer TOUTES les animations et transitions */
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    /* Garder seulement la transition du menu */
+    .sidebar,
+    .menu-toggle {
+        transition: transform 0.3s ease !important;
+    }
+    
+    /* Forcer tous les éléments animés à être visibles immédiatement */
+    .animate-on-scroll,
+    .animate-from-left,
+    .animate-from-right,
+    .animate-zoom {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* Activer le scroll natif optimisé */
+    body,
+    .main-content {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+    }
+}
