@@ -1,118 +1,59 @@
-﻿/* OPTIMISATION RADICALE MOBILE - Performance maximale */
+﻿/* OPTIMISATION MOBILE RADICALE */
 @media (max-width: 768px) {
-    /* DÉSACTIVER TOUTES LES ANIMATIONS */
+    /* Forcer le GPU rendering */
+    * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    /* Désactiver TOUS les effets visuels */
     *,
     *::before,
     *::after {
         animation: none !important;
         transition: none !important;
-        will-change: auto !important;
-    }
-    
-    /* Garder UNIQUEMENT la transition du menu */
-    .sidebar {
-        transition: transform 0.3s ease !important;
-    }
-    
-    .menu-toggle span {
-        transition: all 0.3s ease !important;
-    }
-    
-    /* Désactiver tous les effets visuels lourds */
-    .metric-card,
-    .home-project-card,
-    .project-card,
-    .about-card,
-    .skill-card,
-    .contact-card,
-    .nav-btn,
-    .project-link,
-    .sidebar {
         box-shadow: none !important;
-        background: #1A1F3A !important;
-        border: 1px solid rgba(0, 217, 255, 0.3) !important;
+        text-shadow: none !important;
     }
     
-    /* Simplifier les gradients */
-    .nav-btn.active,
-    .submit-btn {
-        background: #00D9FF !important;
+    /* Sidebar : ABSOLUTE au lieu de FIXED */
+    .sidebar {
+        position: absolute !important;
+        transform: none !important;
     }
     
+    /* Menu toggle : ABSOLUTE au lieu de FIXED */
     .menu-toggle {
+        position: absolute !important;
+    }
+    
+    /* Forcer le scroll natif */
+    body,
+    .main-content {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overflow-scrolling: touch !important;
+    }
+    
+    /* Supprimer tous les gradients */
+    .sidebar,
+    .nav-btn,
+    .nav-btn.active,
+    .submit-btn,
+    .menu-toggle,
+    .project-link:hover {
+        background: #1A1F3A !important;
+        background-image: none !important;
+    }
+    
+    .nav-btn.active {
         background: #00D9FF !important;
     }
     
-    /* Désactiver tous les hover effects */
-    .nav-btn:hover,
-    .metric-card:hover,
-    .home-project-card:hover,
-    .project-card:hover,
-    .about-card:hover,
-    .skill-card:hover,
-    .contact-card:hover,
-    .project-link:hover,
-    .tech-pill:hover,
-    .cv-link:hover,
-    .contact-card a:hover {
-        transform: none !important;
-        box-shadow: none !important;
-        background: inherit !important;
-    }
-    
-    /* Forcer tous les éléments animés à être visibles */
-    .animate-on-scroll,
-    .animate-from-left,
-    .animate-from-right,
-    .animate-zoom {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    
-    /* Optimisation du scroll natif */
-    body {
-        -webkit-overflow-scrolling: touch;
-        overflow-y: scroll;
-        scroll-behavior: auto; /* Pas de smooth scroll */
-    }
-    
+    /* Simplifier tout */
     .main-content {
-        -webkit-overflow-scrolling: touch;
-        overflow-y: visible;
-    }
-    
-    /* Optimisation des images */
-    img {
-        will-change: auto;
-        transform: none !important;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-    }
-    
-    .project-images img:hover {
-        transform: none !important;
-        border-color: rgba(0, 217, 255, 0.3) !important;
-    }
-    
-    /* Désactiver les transitions sur les inputs */
-    input,
-    textarea,
-    button {
-        transition: none !important;
-    }
-    
-    input:focus,
-    textarea:focus {
-        transition: none !important;
-    }
-}
-
-/* Optimisation GPU */
-@media (max-width: 768px) {
-    body,
-    .main-content,
-    .page {
-        transform: translate3d(0, 0, 0);
-        -webkit-transform: translate3d(0, 0, 0);
+        padding: 1rem !important;
     }
 }
