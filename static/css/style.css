@@ -1,4 +1,4 @@
-﻿* {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -655,6 +655,14 @@ body {
 
 /* ============ RESPONSIVE MOBILE ============ */
 @media (max-width: 768px) {
+    /* Sidebar fermée par défaut sur mobile */
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    /* Sidebar fermée par défaut sur mobile */
+    .sidebar {
+        transform: translateX(-100%);
+    }
     /* Afficher le bouton hamburger */
     .menu-toggle {
         display: block;
