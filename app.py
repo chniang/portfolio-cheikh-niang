@@ -1,4 +1,4 @@
-﻿from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory
 import os
 
 app = Flask(__name__,
