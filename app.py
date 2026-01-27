@@ -1,18 +1,15 @@
-﻿from flask import Flask, send_from_directory
+﻿from flask import Flask, send_from_directory, send_file
 import os
 
-app = Flask(__name__,
-            static_folder='static',
-            static_url_path='/static',
-            template_folder='.')
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return send_from_directory('.', 'index.html')
+    return send_file('index.html')
 
-@app.route('/test')
-def test():
-    return send_from_directory('.', 'test.html')
+@app.route('/static/<path:filename>')
+def static_files(filename):
+    return send_from_directory('static', filename)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 7860))
