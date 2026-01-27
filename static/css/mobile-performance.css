@@ -18,11 +18,15 @@
         text-shadow: none !important;
     }
     
-    /* Sidebar : ABSOLUTE au lieu de FIXED */
-    .sidebar {
-        position: absolute !important;
-        transform: none !important;
-    }
+    /* Sidebar fermée par défaut sur mobile */
+.sidebar {
+    transform: translateX(-100%) !important;
+}
+
+/* Sidebar visible quand active */
+.sidebar.active {
+    transform: translateX(0) !important;
+}
     
     /* Menu toggle : ABSOLUTE au lieu de FIXED */
     .menu-toggle {
