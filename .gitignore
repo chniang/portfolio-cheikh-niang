@@ -1,26 +1,31 @@
-﻿venv/
+﻿# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
+*.py[cod]
+*$py.class
 *.so
-*.egg
-*.egg-info/
-dist/
-build/
-.pytest_cache/
-.coverage
-.env
+.Python
+venv/
+env/
+ENV/
+
+# Vercel
+.vercel/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers backup
+*_backup.*
+*.bak
+
+# Logs
+*.log
+
+# IDE
 .vscode/
 .idea/
-*.log
-app_BACKUP_*.py
-app_AVANT_*.py
-FIX_*.ps1
 
-# Backup files
-static/css/style_backup.css
-static/js/script_backup.js
+# Fichiers temporaires
 structure.txt
-.vercel
+test.html
