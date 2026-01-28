@@ -1,31 +1,25 @@
 ﻿# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
 venv/
-env/
-ENV/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
 
 # Vercel
 .vercel/
 
-# Fichiers système
-.DS_Store
-Thumbs.db
-
-# Fichiers backup
-*_backup.*
-*.bak
-
-# Logs
-*.log
-
-# IDE
+# VS Code
+.vs/
 .vscode/
-.idea/
+.claude/
 
 # Fichiers temporaires
-structure.txt
-test.html
+*.html.bak
+vercel-deployed*.html
+.vercel-force-build
+
+# OS
+.DS_Store
+Thumbs.db
