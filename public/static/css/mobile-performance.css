@@ -1,0 +1,63 @@
+/* OPTIMISATION MOBILE RADICALE */
+@media (max-width: 768px) {
+    /* Forcer le GPU rendering */
+    * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    /* Désactiver TOUS les effets visuels */
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    /* Sidebar fermée par défaut sur mobile */
+.sidebar {
+    transform: translateX(-100%) !important;
+}
+
+/* Sidebar visible quand active */
+.sidebar.active {
+    transform: translateX(0) !important;
+}
+    
+    /* Menu toggle : ABSOLUTE au lieu de FIXED */
+    .menu-toggle {
+        position: absolute !important;
+    }
+    
+    /* Forcer le scroll natif */
+    body,
+    .main-content {
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        overflow-scrolling: touch !important;
+    }
+    
+    /* Supprimer tous les gradients */
+    .sidebar,
+    .nav-btn,
+    .nav-btn.active,
+    .submit-btn,
+    .menu-toggle,
+    .project-link:hover {
+        background: #1A1F3A !important;
+        background-image: none !important;
+    }
+    
+    .nav-btn.active {
+        background: #00D9FF !important;
+    }
+    
+    /* Simplifier tout */
+    .main-content {
+        padding: 1rem !important;
+    }
+}
