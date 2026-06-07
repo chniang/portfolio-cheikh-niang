@@ -13,7 +13,7 @@ const navItems = [
 
 function Navbar({ activePage, setActivePage }) {
   return (
-    <nav className="fixed top-0 left-0 w-64 h-screen bg-[#1A1F3A] border-r border-[#00D9FF]/30 flex flex-col py-8 px-4 z-50 overflow-y-auto">
+    <nav className="w-64 h-screen bg-[#1A1F3A] border-r border-[#00D9FF]/30 flex flex-col py-8 px-4 overflow-y-auto">
       <div className="text-center mb-10">
         <motion.div
           initial={{ scale: 0 }}

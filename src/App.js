@@ -42,7 +42,7 @@ function App() {
       )}
 
       <div
-        style={{ zIndex: 9999, position: 'fixed', top: 0, left: 0, height: '100%' }}
+        style={{ zIndex: 9999, position: 'fixed', top: 0, left: 0, height: '100%', width: '16rem' }}
         className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300`}
       >
         <Navbar
