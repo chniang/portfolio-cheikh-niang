@@ -25,25 +25,21 @@ function App() {
     <div className="flex min-h-screen bg-[#0A0E27]">
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        style={{ zIndex: 9999 }}
-        className="fixed top-4 left-4 md:hidden bg-gradient-to-r from-[#00D9FF] to-[#667EEA] p-3 rounded-xl shadow-lg"
+        style={{ zIndex: 10000, position: 'fixed', top: 16, left: 16 }}
+        className="md:hidden bg-gradient-to-r from-[#00D9FF] to-[#667EEA] p-3 rounded-xl shadow-lg"
       >
         <div className="w-5 h-0.5 bg-white mb-1"></div>
         <div className="w-5 h-0.5 bg-white mb-1"></div>
         <div className="w-5 h-0.5 bg-white"></div>
       </button>
 
-      {menuOpen && (
-        <div
-          onClick={() => setMenuOpen(false)}
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 8888 }}
-        />
-      )}
-
-      <div style={{ zIndex: 9000 }} className={menuOpen
-        ? 'fixed top-0 left-0 h-full translate-x-0 transition-transform duration-300'
-        : 'fixed top-0 left-0 h-full -translate-x-full md:translate-x-0 transition-transform duration-300'
-      }>
+      <div
+        style={{ zIndex: 9000, position: 'fixed', top: 0, left: 0, height: '100%' }}
+        className={menuOpen
+          ? 'translate-x-0 transition-transform duration-300'
+          : '-translate-x-full md:translate-x-0 transition-transform duration-300'
+        }
+      >
         <Navbar
           activePage={activePage}
           setActivePage={(page) => {
@@ -52,6 +48,13 @@ function App() {
           }}
         />
       </div>
+
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 9500 }}
+        />
+      )}
 
       <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8">
         <AnimatePresence mode="wait">
