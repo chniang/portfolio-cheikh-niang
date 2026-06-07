@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import Dashboard from './Dashboard';
 
 const metrics = [
   { value: '6', label: 'Projets' },
@@ -106,6 +107,8 @@ function Home({ setActivePage }) {
           </motion.div>
         ))}
       </div>
+
+      <Dashboard />
 
       <h2 className="text-2xl font-bold text-[#00D9FF] mb-6">Projets Recents</h2>
 

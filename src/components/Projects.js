@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import AnimatedSection from './AnimatedSection';
 
 const projects = [
   {
@@ -9,7 +10,8 @@ const projects = [
     tech: ['Python', 'Twilio', 'Groq', 'Whisper', 'Flask', 'ngrok'],
     badge: 'Livre Client',
     badgeColor: '#10B981',
-    github: null, confidential: true,
+    github: null,
+    confidential: true,
     demo: null,
   },
   {
@@ -17,7 +19,7 @@ const projects = [
     desc: 'Module de classification EN/IT en 5 categories via sentence transformers. Accuracy 75.43%, F1 0.747. Livre a un client Fiverr.',
     tech: ['Python', 'Transformers', 'Scikit-learn', 'NLP'],
     badge: 'Livre Client',
-    badgeColor: '#667EEA',
+    badgeColor: '#10B981',
     github: 'https://github.com/chniang/event-classifier',
     demo: null,
   },
@@ -62,7 +64,6 @@ const projects = [
 function Projects() {
   const [filter, setFilter] = useState('Tous');
   const filters = ['Tous', 'Livre Client', 'Deploye', 'Complet'];
-
   const filtered = filter === 'Tous' ? projects : projects.filter(p => p.badge === filter);
 
   return (
@@ -99,48 +100,41 @@ function Projects() {
 
       <div className="grid md:grid-cols-2 gap-6">
         {filtered.map((p, i) => (
-          <motion.div
-            key={i}
-            className="bg-[#1A1F3A] rounded-2xl p-6 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <div className="flex justify-between items-start mb-3">
-              <h2 className="text-white font-bold text-lg leading-tight">{p.title}</h2>
-              <span className="text-xs px-2 py-1 rounded-full text-white ml-2 shrink-0 font-semibold" style={{ backgroundColor: p.badgeColor }}>
-                {p.badge}
-              </span>
-            </div>
-
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">{p.desc}</p>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-              {p.tech.map((t, j) => (
-                <span key={j} className="text-xs px-2 py-1 rounded-full bg-[#667EEA]/20 text-[#667EEA]">{t}</span>
-              ))}
-            </div>
-
-            <div className="flex gap-3">
-              {p.confidential && (
-                <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm cursor-default font-semibold">
-                  Code confidentiel - Projet client
+          <AnimatedSection key={i} delay={i * 0.1} direction="up">
+            <div className="bg-[#1A1F3A] rounded-2xl p-6 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300 h-full">
+              <div className="flex justify-between items-start mb-3">
+                <h2 className="text-white font-bold text-lg leading-tight">{p.title}</h2>
+                <span className="text-xs px-2 py-1 rounded-full text-white ml-2 shrink-0 font-semibold" style={{ backgroundColor: p.badgeColor }}>
+                  {p.badge}
                 </span>
-              )}
-              {!p.confidential && p.github && (
-                <a href={p.github} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A0E27] border border-[#00D9FF]/40 text-[#00D9FF] text-sm hover:bg-[#00D9FF]/10 transition-all">
-                  <FaGithub /> GitHub
-                </a>
-              )}
-              {p.demo && (
-                <a href={p.demo} target="_blank" rel="noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm hover:opacity-90 transition-all">
-                  <FaExternalLinkAlt /> Demo
-                </a>
-              )}
+              </div>
+              <p className="text-gray-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {p.tech.map((t, j) => (
+                  <span key={j} className="text-xs px-2 py-1 rounded-full bg-[#667EEA]/20 text-[#667EEA]">{t}</span>
+                ))}
+              </div>
+              <div className="flex gap-3">
+                {p.confidential && (
+                  <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm font-semibold">
+                    Code confidentiel - Projet client
+                  </span>
+                )}
+                {!p.confidential && p.github && (
+                  <a href={p.github} target="_blank" rel="noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A0E27] border border-[#00D9FF]/40 text-[#00D9FF] text-sm hover:bg-[#00D9FF]/10 transition-all">
+                    <FaGithub /> GitHub
+                  </a>
+                )}
+                {p.demo && (
+                  <a href={p.demo} target="_blank" rel="noreferrer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm hover:opacity-90 transition-all">
+                    <FaExternalLinkAlt /> Demo
+                  </a>
+                )}
+              </div>
             </div>
-          </motion.div>
+          </AnimatedSection>
         ))}
       </div>
     </div>

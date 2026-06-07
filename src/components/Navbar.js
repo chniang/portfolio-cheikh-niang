@@ -1,18 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaHome, FaUser, FaCode, FaStar, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaStar, FaEnvelope, FaTools } from 'react-icons/fa';
 
 const navItems = [
   { id: 'home', label: 'Accueil', icon: FaHome },
   { id: 'about', label: 'About', icon: FaUser },
   { id: 'projects', label: 'Projects', icon: FaCode },
   { id: 'skills', label: 'Skills', icon: FaStar },
+  { id: 'services', label: 'Services', icon: FaTools },
   { id: 'contact', label: 'Contact', icon: FaEnvelope },
 ];
 
 function Navbar({ activePage, setActivePage }) {
   return (
-    <nav className="fixed top-0 left-0 w-64 h-screen bg-[#1A1F3A] border-r border-[#00D9FF]/30 flex flex-col py-8 px-4 z-50">
+    <nav className="fixed top-0 left-0 w-64 h-screen bg-[#1A1F3A] border-r border-[#00D9FF]/30 flex flex-col py-8 px-4 z-50 overflow-y-auto">
       <div className="text-center mb-10">
         <motion.div
           initial={{ scale: 0 }}
