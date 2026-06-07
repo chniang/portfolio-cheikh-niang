@@ -33,12 +33,17 @@ function App() {
         <div className="w-5 h-0.5 bg-white"></div>
       </button>
 
+      {menuOpen && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 9998 }}
+          className="md:hidden"
+        />
+      )}
+
       <div
-        style={{ zIndex: 9000, position: 'fixed', top: 0, left: 0, height: '100%' }}
-        className={menuOpen
-          ? 'translate-x-0 transition-transform duration-300'
-          : '-translate-x-full md:translate-x-0 transition-transform duration-300'
-        }
+        style={{ zIndex: 9999, position: 'fixed', top: 0, left: 0, height: '100%' }}
+        className={`${menuOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300`}
       >
         <Navbar
           activePage={activePage}
@@ -48,13 +53,6 @@ function App() {
           }}
         />
       </div>
-
-      {menuOpen && (
-        <div
-          onClick={() => setMenuOpen(false)}
-          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.6)', zIndex: 9500 }}
-        />
-      )}
 
       <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8">
         <AnimatePresence mode="wait">
