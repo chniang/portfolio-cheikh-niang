@@ -5,6 +5,15 @@ import AnimatedSection from './AnimatedSection';
 
 const projects = [
   {
+    title: 'LinguaScope',
+    desc: 'Analyse de sentiment et de discours en français et anglais : détection de polarité, mots parasites, structure du discours et score de clarté, avec feedback automatique.',
+    tech: ['Python', 'Gradio', 'TextBlob', 'NLP', 'langdetect'],
+    badge: 'Deploye',
+    badgeColor: '#10B981',
+    github: 'https://github.com/chniang/linguascope',
+    demo: 'https://huggingface.co/spaces/TIJAANI/linguascope',
+  },
+  {
     title: 'Assistant vocal IA - Appels automatises',
     desc: 'POC vocal IA pour appels sortants automatises. Pipeline complet : appel Twilio, transcription Whisper, conversation Llama 3.3 70B, resume structure par email. Livre et valide par le client.',
     tech: ['Python', 'Twilio', 'Groq', 'Whisper', 'Flask', 'ngrok'],
@@ -25,21 +34,12 @@ const projects = [
   },
   {
     title: 'Dakar Power Prediction',
-    desc: 'Prediction des risques de coupure electrique sur 8 quartiers de Dakar. LightGBM (88%) et LSTM (90%). Pipeline ETL, modelisation, dashboard interactif. 70 001 observations, historique Supabase.',
+    desc: 'Prediction des risques de coupure electrique sur 8 quartiers de Dakar. LightGBM (88%) et LSTM (90%). Pipeline ETL, modelisation, dashboard interactif. 70 000 observations, historique Supabase.',
     tech: ['Python', 'LightGBM', 'TensorFlow', 'Streamlit', 'Supabase', 'Plotly'],
     badge: 'Deploye',
     badgeColor: '#10B981',
     github: 'https://github.com/chniang/dakar-power-prediction',
     demo: 'https://huggingface.co/spaces/TIJAANI/dakar-power-prediction',
-  },
-  {
-    title: 'SentimentScope - Analyse NLP',
-    desc: 'Classificateur de sentiments positif/negatif/neutre base sur Transformers HuggingFace - 82% de precision. 3 modes : texte libre, batch CSV (10 000+ textes), temps reel avec scores de confiance.',
-    tech: ['Python', 'Transformers', 'NLTK', 'TextBlob', 'Streamlit', 'Plotly'],
-    badge: 'Deploye',
-    badgeColor: '#10B981',
-    github: 'https://github.com/chniang/sentiment-analysis-nlp',
-    demo: 'https://huggingface.co/spaces/TIJAANI/sentiment-scope',
   },
   {
     title: 'TidianeFlix - Gestion Cinema',
