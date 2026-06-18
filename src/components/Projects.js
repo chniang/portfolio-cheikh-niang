@@ -61,6 +61,7 @@ const projects = [
     badgeColor: '#F59E0B',
     github: 'https://github.com/chniang/Africa_climate_change_visualisation',
     demo: null,
+    image: 'africa-climate.png',
   },
   {
     title: 'Smart Crowd Alert',
