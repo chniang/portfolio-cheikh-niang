@@ -4,11 +4,11 @@ import { FaCode, FaBrain, FaMicrophone, FaCog, FaChartBar, FaDatabase, FaRocket 
 import AnimatedSection from './AnimatedSection';
 
 const skillGroups = [
-  { title: 'Langages', icon: FaCode, skills: ['Python', 'SQL', 'Bash', 'HTML/CSS'] },
-  { title: 'Machine Learning', icon: FaBrain, skills: ['Scikit-learn', 'LightGBM', 'TensorFlow', 'Keras', 'Regression', 'Classification', 'Feature Engineering'] },
-  { title: 'NLP et Voice AI', icon: FaMicrophone, skills: ['Transformers HuggingFace', 'Whisper', 'Groq API', 'Prompt Engineering', 'NLTK', 'TextBlob', 'Voice AI'] },
-  { title: 'APIs et Automatisation', icon: FaCog, skills: ['Twilio Voice API', 'Make.com', 'Notion API', 'Meta APIs', 'APIs REST', 'Google Sheets API'] },
-  { title: 'Data et Visualisation', icon: FaChartBar, skills: ['Pandas', 'NumPy', 'Plotly', 'Matplotlib', 'Seaborn', 'Streamlit', 'Looker Studio', 'Tableau'] },
+  { title: 'Langages', icon: FaCode, skills: ['Python', 'SQL', 'JavaScript', 'Bash', 'HTML/CSS'] },
+  { title: 'Machine Learning', icon: FaBrain, skills: ['Scikit-learn', 'LightGBM', 'TensorFlow', 'Regression', 'Classification', 'Feature Engineering'] },
+  { title: 'NLP et Voice AI', icon: FaMicrophone, skills: ['Transformers HuggingFace', 'Whisper', 'Groq API', 'Prompt Engineering', 'TextBlob', 'Voice AI'] },
+  { title: 'APIs et Automatisation', icon: FaCog, skills: ['Twilio Voice API', 'APIs REST', 'Open-Meteo API'] },
+  { title: 'Data et Visualisation', icon: FaChartBar, skills: ['Pandas', 'NumPy', 'Plotly', 'Matplotlib', 'Seaborn', 'Streamlit', 'Gradio'] },
   { title: 'Bases de donnees', icon: FaDatabase, skills: ['PostgreSQL', 'MySQL', 'SQLite', 'Supabase', 'SQLAlchemy'] },
   { title: 'DevOps et Deploiement', icon: FaRocket, skills: ['Git', 'GitHub', 'Vercel', 'HuggingFace Spaces', 'Flask', 'ngrok', 'VS Code', 'Jupyter'] },
 ];
