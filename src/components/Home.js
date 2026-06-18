@@ -44,7 +44,7 @@ function Home({ setActivePage }) {
         transition={{ duration: 0.6 }}
       >
         <motion.img
-          src="/photo.jpg"
+          src="/photo.jpeg"
           alt="Cheikh Niang"
           className="w-40 h-40 rounded-full border-4 border-[#00D9FF] shadow-lg shadow-[#00D9FF]/40 mx-auto mb-6 object-cover"
           initial={{ scale: 0 }}
