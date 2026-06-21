@@ -6,8 +6,8 @@ import Dashboard from './Dashboard';
 const metrics = [
   { value: '6', label: 'Projets' },
   { value: '4', label: 'Apps deployees' },
-  { value: '534K+', label: 'Donnees traitees' },
-  { value: '90%', label: 'Precision ML' },
+  { value: '535K+', label: 'Donnees traitees' },
+  { value: '0.87', label: 'AUC-ROC moyen' },
 ];
 
 const recentProjects = [
@@ -27,7 +27,7 @@ const recentProjects = [
   },
   {
     title: 'Dakar Power Prediction',
-    desc: 'Prediction des coupures electriques sur 8 quartiers de Dakar avec LightGBM (88%) et LSTM (90%).',
+    desc: 'Prediction des coupures electriques sur 8 quartiers de Dakar avec LightGBM + LSTM (AUC-ROC 0.87, recall 60% sur la classe minoritaire).',
     tech: ['Python', 'LightGBM', 'TensorFlow', 'Streamlit'],
     badge: 'Deploye',
     color: '#10B981',
