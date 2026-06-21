@@ -31,7 +31,7 @@ const services = [
   {
     icon: FaChartLine,
     title: 'Analytics et Dashboards',
-    desc: 'Tableaux de bord interactifs temps reel avec KPIs metier, segmentation clients, visualisations avancees. Streamlit, Plotly, Looker Studio.',
+    desc: 'Tableaux de bord interactifs temps reel avec KPIs metier, segmentation clients, visualisations avancees. Streamlit, Plotly.',
     tags: ['Streamlit', 'Plotly'],
   },
   {
