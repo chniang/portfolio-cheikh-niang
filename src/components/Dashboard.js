@@ -6,18 +6,42 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid
 } from 'recharts';
 
-const radarData = [
-  { skill: 'Machine Learning', value: 85 },
-  { skill: 'NLP', value: 80 },
-  { skill: 'Voice AI', value: 75 },
-  { skill: 'Automatisation', value: 90 },
-  { skill: 'Analytics', value: 85 },
-  { skill: 'Data Eng.', value: 75 },
+const projectTechs = [
+  ['Python', 'Gradio', 'TextBlob', 'NLP', 'langdetect'],
+  ['Python', 'Twilio', 'Groq', 'Whisper', 'Flask', 'ngrok'],
+  ['Python', 'Transformers', 'Scikit-learn', 'NLP'],
+  ['Python', 'LightGBM', 'TensorFlow', 'Streamlit', 'Supabase', 'Plotly'],
+  ['Python', 'Streamlit', 'SQLite', 'SQLAlchemy', 'Scikit-learn', 'Plotly'],
+  ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'Jupyter'],
+  ['Flask', 'Python', 'JavaScript', 'HTML/CSS'],
 ];
+
+const domains = [
+  { skill: 'Machine Learning', keywords: ['LightGBM', 'TensorFlow', 'Scikit-learn', 'Transformers'] },
+  { skill: 'NLP',              keywords: ['NLP', 'Transformers', 'TextBlob', 'langdetect'] },
+  { skill: 'Voice AI',         keywords: ['Twilio', 'Whisper', 'OpenAI API'] },
+  { skill: 'Automatisation',   keywords: ['Flask', 'Make.com', 'APIs REST'] },
+  { skill: 'Analytics',        keywords: ['Pandas', 'Plotly', 'Matplotlib', 'Streamlit', 'Dashboard'] },
+  { skill: 'Data Eng.',        keywords: ['SQL', 'SQLAlchemy', 'Docker', 'ETL'] },
+];
+
+const _counts = domains.map(d => ({
+  skill: d.skill,
+  count: projectTechs.filter(techs =>
+    techs.some(t => d.keywords.some(kw => t.toLowerCase().includes(kw.toLowerCase())))
+  ).length,
+}));
+
+const _max = Math.max(..._counts.map(c => c.count));
+
+const radarData = _counts.map(c => ({
+  skill: c.skill,
+  value: Math.round((c.count / _max) * 100),
+}));
 
 const donutData = [
   { name: 'Livre Client', value: 2 },
-  { name: 'Deploye', value: 3 },
+  { name: 'Deploye', value: 4 },
   { name: 'Complet', value: 1 },
 ];
 
@@ -28,7 +52,7 @@ const timelineData = [
   { period: 'Mai 24', projets: 2 },
   { period: 'Jan 25', projets: 3 },
   { period: 'Avr 26', projets: 5 },
-  { period: 'Mai 26', projets: 6 },
+  { period: 'Mai 26', projets: 7 },
 ];
 
 function Dashboard() {

@@ -4,8 +4,8 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import Dashboard from './Dashboard';
 
 const metrics = [
-  { value: '6', label: 'Projets' },
-  { value: '4', label: 'Apps deployees' },
+  { value: '7', label: 'Projets' },
+  { value: '5', label: 'Apps deployees' },
   { value: '535K+', label: 'Donnees traitees' },
   { value: '0.87', label: 'AUC-ROC moyen' },
 ];

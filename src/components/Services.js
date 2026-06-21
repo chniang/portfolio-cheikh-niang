@@ -20,19 +20,19 @@ const services = [
     icon: FaCog,
     title: 'Automatisation et Integrations',
     desc: 'Automatisation de workflows metier via Make.com, APIs REST, Notion, Google Sheets. Zero intervention manuelle apres configuration.',
-    tags: ['Make.com', 'APIs REST', 'Notion API'],
+    tags: ['APIs REST'],
   },
   {
     icon: FaCode,
     title: 'NLP et Traitement de Texte',
     desc: 'Analyse de sentiments, classification de textes, extraction d information. Transformers HuggingFace, modeles multilingues EN/FR/IT.',
-    tags: ['Transformers', 'NLTK', 'TextBlob'],
+    tags: ['Transformers', 'TextBlob'],
   },
   {
     icon: FaChartLine,
     title: 'Analytics et Dashboards',
     desc: 'Tableaux de bord interactifs temps reel avec KPIs metier, segmentation clients, visualisations avancees. Streamlit, Plotly, Looker Studio.',
-    tags: ['Streamlit', 'Plotly', 'Looker Studio'],
+    tags: ['Streamlit', 'Plotly'],
   },
   {
     icon: FaDatabase,
