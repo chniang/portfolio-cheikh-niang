@@ -16,8 +16,9 @@ const cards = [
     Icon: FaBriefcase,
     title: 'Experience',
     items: [
-      'AI and Automation Engineer - Martin Malo / Holding 1.2NET (Mai 2026 - present)',
-      'Specialiste Automatisation et Data - Martin Malo inc. (Avr-Mai 2026)',
+      'Responsable Technique et Analytique - Website Landlord QC, Martin Malo / Holding 1.2NET (Juin 2026 - present)',
+      'AI and Automation Engineer - Martin Malo / Holding 1.2NET (Mai 2026)',
+      'Specialiste Automatisation et Data - Martin Malo inc. (Avr 2026)',
       'Consultant Commercial Freelance - Pikou Service (Oct 2022 - Dec 2023)',
     ],
   },

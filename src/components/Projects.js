@@ -35,7 +35,7 @@ const projects = [
   },
   {
     title: 'Dakar Power Prediction',
-    desc: 'Prediction des risques de coupure electrique sur 8 quartiers de Dakar. LightGBM (88%) et LSTM (90%). Pipeline ETL, modelisation, dashboard interactif. 70 000 observations, historique Supabase.',
+    desc: 'Prediction des risques de coupure electrique sur 8 quartiers de Dakar. LightGBM + LSTM, AUC-ROC 0.87, recall 60% sur la classe minoritaire. 70 000 observations, dashboard interactif.',
     tech: ['Python', 'LightGBM', 'TensorFlow', 'Streamlit', 'Supabase', 'Plotly'],
     badge: 'Deploye',
     badgeColor: '#10B981',
