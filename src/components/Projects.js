@@ -44,15 +44,17 @@ const projects = [
     badgeColor: '#10B981',
     github: 'https://github.com/chniang/wolof-bus-assistant',
     demo: 'https://huggingface.co/spaces/TIJAANI/guindima-ai',
+    image: 'guindima-ai.jpg',
   },
   {
     title: 'CarteViz',
-    desc: 'SaaS de cartes de visite numeriques pour le marche africain : liens personnalises, QR codes, dashboard analytics, paiement Wave. 7+ utilisateurs reels, audit de securite complet (score 9.5/10).',
+    desc: 'SaaS de cartes de visite numeriques pour le marche africain : lien personnalise, QR code telechargeable, partage WhatsApp. MVP en ligne ; dashboard analytics et paiement Wave/Orange Money prevus en phase 2.',
     tech: ['JavaScript', 'Node.js', 'Firestore', 'Supabase', 'Vercel'],
     badge: 'Deploye',
     badgeColor: '#10B981',
     github: 'https://github.com/chniang/carte_visite',
     demo: 'https://chniang.github.io/carte_visite/index_saas.html',
+    image: 'carteviz.jpg',
   },
   {
     title: 'AcademyOS - Xarala Talent Camp',
@@ -62,6 +64,17 @@ const projects = [
     badgeColor: '#F59E0B',
     github: null,
     demo: 'https://academy-os-ten.vercel.app',
+    image: 'academyos.jpg',
+  },
+  {
+    title: 'Admito',
+    desc: 'SaaS d\'aide a la preparation aux concours administratifs senegalais (Police, CREM, Douane, Gendarmerie) : algorithme d\'eligibilite deterministe, calendrier public, rappels de cloture par email automatises. MVP deploye en production ; paiement mobile money valide en sandbox, lancement commercial en attente (NINEA/RC, domaine).',
+    tech: ['Next.js', 'TypeScript', 'Supabase', 'Resend'],
+    badge: 'En Pause',
+    badgeColor: '#94A3B8',
+    github: 'https://github.com/chniang/admito',
+    demo: 'https://admito-ivory.vercel.app',
+    image: 'admito.jpg',
   },
   {
     title: 'Dakar Power Prediction',
@@ -107,7 +120,7 @@ const projects = [
 
 function Projects() {
   const [filter, setFilter] = useState('Tous');
-  const filters = ['Tous', 'Livre Client', 'Deploye', 'Complet'];
+  const filters = ['Tous', 'Livre Client', 'Deploye', 'Complet', 'En Pause'];
   const filtered = filter === 'Tous' ? projects : projects.filter(p => p.badge === filter);
 
   return (

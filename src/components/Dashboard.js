@@ -17,6 +17,7 @@ const projectTechs = [
   ['Python', 'Streamlit', 'SQLite', 'SQLAlchemy', 'Scikit-learn', 'Plotly'],
   ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'Jupyter'],
   ['Flask', 'Python', 'JavaScript', 'HTML/CSS'],
+  ['Next.js', 'TypeScript', 'Supabase', 'Resend'],
 ];
 
 const domains = [
@@ -46,9 +47,10 @@ const donutData = [
   { name: 'Livre Client', value: 2 },
   { name: 'Deploye', value: 6 },
   { name: 'Complet', value: 2 },
+  { name: 'En Pause', value: 1 },
 ];
 
-const donutColors = ['#10B981', '#00D9FF', '#F59E0B'];
+const donutColors = ['#10B981', '#00D9FF', '#F59E0B', '#94A3B8'];
 
 const timelineData = [
   { period: 'Oct 22', projets: 1 },
@@ -56,7 +58,7 @@ const timelineData = [
   { period: 'Jan 25', projets: 3 },
   { period: 'Avr 26', projets: 5 },
   { period: 'Mai 26', projets: 7 },
-  { period: 'Sept 26', projets: 10 },
+  { period: 'Sept 26', projets: 11 },
 ];
 
 function Dashboard() {

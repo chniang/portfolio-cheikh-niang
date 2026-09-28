@@ -9,7 +9,7 @@ import SpotlightCard from './SpotlightCard';
 const roles = ['Data Scientist', 'AI Engineer', 'NLP Engineer', 'Automatisation IA'];
 
 const metrics = [
-  { value: '10', label: 'Projets' },
+  { value: '11', label: 'Projets' },
   { value: '6', label: 'Apps deployees' },
   { value: '535K+', label: 'Donnees traitees' },
   { value: '0.87', label: 'AUC-ROC moyen' },
