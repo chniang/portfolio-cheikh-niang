@@ -7,6 +7,17 @@ import SpotlightCard from './SpotlightCard';
 
 const projects = [
   {
+    title: 'GuindiMa AI',
+    desc: 'GuindiMa AI (« guide-moi » en wolof) : on parle ou on ecrit en wolof, l\'appli transcrit, extrait le depart et l\'arrivee avec un LLM, trouve la ligne parmi 31 lignes reelles (Dakar Dem Dikk, Tata AFTU) et lit la reponse a voix haute en wolof. Pipeline resilient avec repli local automatique si l\'API LLM ne repond pas.',
+    tech: ['Python', 'Whisper', 'SpeechT5', 'Gradio', 'Hugging Face', 'NLP', 'LLM'],
+    badge: '🏆 2e place Senegal',
+    badgeColor: '#D4A017',
+    github: 'https://github.com/chniang/wolof-bus-assistant',
+    demo: 'https://huggingface.co/spaces/TIJAANI/guindima-ai',
+    podium: 'https://hackathon.gomycode.com/onboarding/winners',
+    image: 'guindima-ai.jpg',
+  },
+  {
     title: 'LinguaScope',
     desc: 'Analyse de sentiment et de discours en français et anglais : détection de polarité, mots parasites, structure du discours et score de clarté, avec feedback automatique.',
     tech: ['Python', 'Gradio', 'TextBlob', 'NLP', 'langdetect'],
@@ -35,16 +46,6 @@ const projects = [
     github: null,
     confidential: true,
     demo: null,
-  },
-  {
-    title: 'GuindiMa AI',
-    desc: 'Assistant vocal en wolof qui indique la ligne de bus entre deux lieux de Dakar (31 lignes reelles). Pipeline ASR wolof, extraction d\'intention par LLM, synthese vocale. Concu en une journee pour un hackathon GoMyCode x NVIDIA.',
-    tech: ['Python', 'Whisper', 'Gradio', 'Hugging Face', 'NLP'],
-    badge: 'Deploye',
-    badgeColor: '#10B981',
-    github: 'https://github.com/chniang/wolof-bus-assistant',
-    demo: 'https://huggingface.co/spaces/TIJAANI/guindima-ai',
-    image: 'guindima-ai.jpg',
   },
   {
     title: 'CarteViz',
@@ -214,6 +215,12 @@ function Projects() {
                         <motion.a whileHover={{ y: -2 }} href={p.demo} target="_blank" rel="noreferrer"
                           className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm hover:opacity-90 transition-all">
                           <FaExternalLinkAlt /> Demo
+                        </motion.a>
+                      )}
+                      {p.podium && (
+                        <motion.a whileHover={{ y: -2 }} href={p.podium} target="_blank" rel="noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A0E27] border border-[#D4A017]/50 text-[#D4A017] text-sm hover:bg-[#D4A017]/10 transition-all">
+                          🏆 Podium
                         </motion.a>
                       )}
                     </div>

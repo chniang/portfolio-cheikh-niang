@@ -18,10 +18,10 @@ const metrics = [
 const recentProjects = [
   {
     title: 'GuindiMa AI',
-    desc: 'Assistant vocal en wolof pour les bus de Dakar : ASR, extraction d\'intention par LLM et synthese vocale. Concu en une journee (hackathon GoMyCode x NVIDIA).',
+    desc: 'Assistant vocal en wolof pour les bus de Dakar : ASR, extraction d\'intention par LLM et synthese vocale. 2e place Senegal (NVIDIA Brev Breakthrough Award), hackathon GOMYCODE x NVIDIA.',
     tech: ['Whisper', 'LLM', 'Gradio'],
-    badge: 'Deploye',
-    color: '#10B981',
+    badge: '🏆 2e place',
+    color: '#D4A017',
   },
   {
     title: 'AcademyOS - Xarala',
