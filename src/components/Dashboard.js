@@ -18,6 +18,7 @@ const projectTechs = [
   ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'Jupyter'],
   ['Flask', 'Python', 'JavaScript', 'HTML/CSS'],
   ['Next.js', 'TypeScript', 'Supabase', 'Resend'],
+  ['Python', 'NLP', 'Machine Learning', 'Data Analysis'],
 ];
 
 const domains = [
@@ -45,7 +46,7 @@ const radarData = _counts.map(c => ({
 
 const donutData = [
   { name: 'Livre Client', value: 2 },
-  { name: 'Deploye', value: 6 },
+  { name: 'Deploye', value: 7 },
   { name: 'Complet', value: 2 },
   { name: 'En Pause', value: 1 },
 ];
@@ -58,7 +59,7 @@ const timelineData = [
   { period: 'Jan 25', projets: 3 },
   { period: 'Avr 26', projets: 5 },
   { period: 'Mai 26', projets: 7 },
-  { period: 'Sept 26', projets: 11 },
+  { period: 'Sept 26', projets: 12 },
 ];
 
 function Dashboard() {

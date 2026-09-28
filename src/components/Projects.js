@@ -77,6 +77,15 @@ const projects = [
     image: 'admito.jpg',
   },
   {
+    title: 'AcademyOS Content Recommender',
+    desc: 'Systeme de recommandation de contenu pedagogique pour les apprenants d\'AcademyOS : embeddings multilingues (sentence-transformers) et similarite cosinus sur un catalogue de 6 600+ cours Coursera, sans fine-tuning. Interface Streamlit avec selection d\'apprenant et liens directs vers les cours recommandes.',
+    tech: ['Python', 'NLP', 'Machine Learning', 'Data Analysis'],
+    badge: 'Deploye',
+    badgeColor: '#10B981',
+    github: 'https://github.com/chniang/academyos-content-recommender',
+    demo: 'https://academyos-content-recommender.streamlit.app',
+  },
+  {
     title: 'Dakar Power Prediction',
     desc: 'Prediction des risques de coupure electrique sur 8 quartiers de Dakar. LightGBM + LSTM, AUC-ROC 0.87, recall 60% sur la classe minoritaire. 70 000 observations, dashboard interactif.',
     tech: ['Python', 'LightGBM', 'TensorFlow', 'Streamlit', 'Supabase', 'Plotly'],
