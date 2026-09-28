@@ -84,6 +84,7 @@ const projects = [
     badgeColor: '#10B981',
     github: 'https://github.com/chniang/academyos-content-recommender',
     demo: 'https://academyos-content-recommender.streamlit.app',
+    image: 'academyos-content-recommender.jpg',
   },
   {
     title: 'Dakar Power Prediction',
