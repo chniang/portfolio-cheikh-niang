@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
+import AmbientBackground from './components/AmbientBackground';
 
 function App() {
   const [activePage, setActivePage] = useState('home');
@@ -22,7 +23,9 @@ function App() {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#0A0E27]">
+    <div className="flex min-h-screen bg-[#0A0E27] relative">
+      <AmbientBackground />
+      <div className="grain-overlay" />
       <button
         onClick={() => setMenuOpen(!menuOpen)}
         style={{ zIndex: 10000, position: 'fixed', top: 16, left: 16 }}
@@ -54,7 +57,7 @@ function App() {
         />
       </div>
 
-      <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8">
+      <main className="md:ml-64 flex-1 p-4 md:p-8 pt-16 md:pt-8 relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activePage}

@@ -10,6 +10,9 @@ const projectTechs = [
   ['Python', 'Gradio', 'TextBlob', 'NLP', 'langdetect'],
   ['Python', 'Twilio', 'Groq', 'Whisper', 'Flask', 'ngrok'],
   ['Python', 'Transformers', 'Scikit-learn', 'NLP'],
+  ['Python', 'Whisper', 'Gradio', 'Hugging Face', 'NLP'],
+  ['JavaScript', 'Node.js', 'Firestore', 'Supabase', 'Vercel'],
+  ['Django', 'Celery', 'WeasyPrint', 'Python'],
   ['Python', 'LightGBM', 'TensorFlow', 'Streamlit', 'Supabase', 'Plotly'],
   ['Python', 'Streamlit', 'SQLite', 'SQLAlchemy', 'Scikit-learn', 'Plotly'],
   ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Plotly', 'Jupyter'],
@@ -41,8 +44,8 @@ const radarData = _counts.map(c => ({
 
 const donutData = [
   { name: 'Livre Client', value: 2 },
-  { name: 'Deploye', value: 4 },
-  { name: 'Complet', value: 1 },
+  { name: 'Deploye', value: 6 },
+  { name: 'Complet', value: 2 },
 ];
 
 const donutColors = ['#10B981', '#00D9FF', '#F59E0B'];
@@ -53,6 +56,7 @@ const timelineData = [
   { period: 'Jan 25', projets: 3 },
   { period: 'Avr 26', projets: 5 },
   { period: 'Mai 26', projets: 7 },
+  { period: 'Sept 26', projets: 10 },
 ];
 
 function Dashboard() {

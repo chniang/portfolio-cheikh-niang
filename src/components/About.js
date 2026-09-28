@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaGraduationCap, FaBriefcase, FaRocket, FaLanguage } from 'react-icons/fa';
+import SpotlightCard from './SpotlightCard';
 
 const cards = [
   {
@@ -16,10 +17,9 @@ const cards = [
     Icon: FaBriefcase,
     title: 'Experience',
     items: [
-      'Responsable Technique et Analytique - Website Landlord QC, Martin Malo / Holding 1.2NET (Juin 2026 - present)',
-      'AI and Automation Engineer - Martin Malo / Holding 1.2NET (Mai 2026)',
-      'Specialiste Automatisation et Data - Martin Malo inc. (Avr 2026)',
-      'Consultant Commercial Freelance - Pikou Service (Oct 2022 - Dec 2023)',
+      'Responsable Technique - Website Landlord QC, mission freelance (confidentiel) (Juin 2026 - present)',
+      'AI and Automation Engineer - mission freelance (confidentiel) (Mai 2026)',
+      'Chef de Projet - Xarala Talent Camp 2026, squad AcademyOS (Aout - Sept 2026)',
     ],
   },
   {
@@ -46,7 +46,7 @@ function About() {
   return (
     <div className="max-w-4xl mx-auto">
       <motion.h1
-        className="text-4xl font-black text-white mb-2"
+        className="text-4xl font-black text-white mb-2 font-display"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
       >
@@ -63,24 +63,25 @@ function About() {
         {cards.map((card, i) => {
           const Icon = card.Icon;
           return (
-            <motion.div
-              key={i}
-              className="bg-[#1A1F3A] rounded-2xl p-8 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <Icon className="text-3xl text-[#00D9FF] mb-4" />
-              <h2 className="text-white font-bold text-xl mb-4">{card.title}</h2>
-              <ul className="space-y-2">
-                {card.items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-2 text-gray-400 text-sm leading-relaxed">
-                    <span className="text-[#00D9FF] mt-1 font-bold">-</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            <SpotlightCard key={i} className="rounded-2xl">
+              <motion.div
+                className="bg-[#1A1F3A] rounded-2xl p-8 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300 h-full"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Icon className="text-3xl text-[#00D9FF] mb-4" />
+                <h2 className="text-white font-bold text-xl mb-4 font-display">{card.title}</h2>
+                <ul className="space-y-2">
+                  {card.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-gray-400 text-sm leading-relaxed">
+                      <span className="text-[#00D9FF] mt-1 font-bold">-</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </SpotlightCard>
           );
         })}
       </div>

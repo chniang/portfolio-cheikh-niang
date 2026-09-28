@@ -66,7 +66,7 @@ function Contact() {
   return (
     <div className="max-w-5xl mx-auto">
       <motion.h1
-        className="text-4xl font-black text-white mb-2"
+        className="text-4xl font-black text-white mb-2 font-display"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
       >

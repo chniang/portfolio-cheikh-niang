@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import AnimatedSection from './AnimatedSection';
+import TiltCard from './TiltCard';
+import SpotlightCard from './SpotlightCard';
 
 const projects = [
   {
@@ -26,12 +28,40 @@ const projects = [
   },
   {
     title: 'Event Classifier - NLP Multilingue',
-    desc: 'Module de classification EN/IT en 5 categories via sentence transformers. Accuracy 75.43%, F1 0.747. Livre a un client Fiverr.',
+    desc: 'Module de classification EN/IT en 5 categories via sentence transformers. Accuracy 75.43%, F1 0.747. Livre a un client Fiverr en 3 jours d\'avance.',
     tech: ['Python', 'Transformers', 'Scikit-learn', 'NLP'],
     badge: 'Livre Client',
     badgeColor: '#10B981',
-    github: 'https://github.com/chniang/event-classifier',
+    github: null,
+    confidential: true,
     demo: null,
+  },
+  {
+    title: 'GuindiMa AI',
+    desc: 'Assistant vocal en wolof qui indique la ligne de bus entre deux lieux de Dakar (31 lignes reelles). Pipeline ASR wolof, extraction d\'intention par LLM, synthese vocale. Concu en une journee pour un hackathon GoMyCode x NVIDIA.',
+    tech: ['Python', 'Whisper', 'Gradio', 'Hugging Face', 'NLP'],
+    badge: 'Deploye',
+    badgeColor: '#10B981',
+    github: 'https://github.com/chniang/wolof-bus-assistant',
+    demo: 'https://huggingface.co/spaces/TIJAANI/guindima-ai',
+  },
+  {
+    title: 'CarteViz',
+    desc: 'SaaS de cartes de visite numeriques pour le marche africain : liens personnalises, QR codes, dashboard analytics, paiement Wave. 7+ utilisateurs reels, audit de securite complet (score 9.5/10).',
+    tech: ['JavaScript', 'Node.js', 'Firestore', 'Supabase', 'Vercel'],
+    badge: 'Deploye',
+    badgeColor: '#10B981',
+    github: 'https://github.com/chniang/carte_visite',
+    demo: 'https://chniang.github.io/carte_visite/index_saas.html',
+  },
+  {
+    title: 'AcademyOS - Xarala Talent Camp',
+    desc: 'Plateforme de gestion de bootcamp (Django, Celery) developpee en squad de 5 : suivi des cohortes, certificats PDF verifiables par QR code, plus de 400 tests automatises. Chef de Projet ; squad classee 2e du programme.',
+    tech: ['Django', 'Celery', 'WeasyPrint', 'Python'],
+    badge: 'Complet',
+    badgeColor: '#F59E0B',
+    github: null,
+    demo: 'https://academy-os-ten.vercel.app',
   },
   {
     title: 'Dakar Power Prediction',
@@ -83,7 +113,7 @@ function Projects() {
   return (
     <div className="max-w-5xl mx-auto">
       <motion.h1
-        className="text-4xl font-black text-white mb-2"
+        className="text-4xl font-black text-white mb-2 font-display"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
       >
@@ -103,60 +133,71 @@ function Projects() {
             onClick={() => setFilter(f)}
             className={
               filter === f
-                ? 'px-4 py-2 rounded-xl font-semibold text-sm bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white'
-                : 'px-4 py-2 rounded-xl font-semibold text-sm bg-[#1A1F3A] text-gray-400 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:text-[#00D9FF] transition-all duration-300'
+                ? 'relative px-4 py-2 rounded-xl font-semibold text-sm text-white'
+                : 'relative px-4 py-2 rounded-xl font-semibold text-sm bg-[#1A1F3A] text-gray-400 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:text-[#00D9FF] transition-all duration-300'
             }
           >
-            {f}
+            {filter === f && (
+              <motion.div
+                layoutId="projectFilterPill"
+                className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA]"
+                transition={{ type: 'spring', stiffness: 400, damping: 32 }}
+              />
+            )}
+            <span className="relative">{f}</span>
           </button>
         ))}
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         {filtered.map((p, i) => (
-          <AnimatedSection key={i} delay={i * 0.1} direction="up">
-            <div className="bg-[#1A1F3A] rounded-2xl border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300 h-full overflow-hidden flex flex-col">
-              {p.image && (
-                <img
-                  src={`/images/projects/${p.image}`}
-                  alt={p.title}
-                  className="w-full aspect-video object-cover"
-                />
-              )}
-              <div className="p-6 flex flex-col flex-1">
-                <div className="flex justify-between items-start mb-3">
-                  <h2 className="text-white font-bold text-lg leading-tight">{p.title}</h2>
-                  <span className="text-xs px-2 py-1 rounded-full text-white ml-2 shrink-0 font-semibold" style={{ backgroundColor: p.badgeColor }}>
-                    {p.badge}
-                  </span>
-                </div>
-                <p className="text-gray-400 text-sm leading-relaxed mb-4">{p.desc}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {p.tech.map((t, j) => (
-                    <span key={j} className="text-xs px-2 py-1 rounded-full bg-[#667EEA]/20 text-[#667EEA]">{t}</span>
-                  ))}
-                </div>
-                <div className="flex gap-3 mt-auto">
-                  {p.confidential && (
-                    <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm font-semibold">
-                      Code confidentiel - Projet client
-                    </span>
+          <AnimatedSection key={p.title} delay={i * 0.05} direction="up">
+            <TiltCard className="h-full">
+              <SpotlightCard className="rounded-2xl h-full">
+                <div className="bg-[#1A1F3A] rounded-2xl border border-[#00D9FF]/20 hover:border-[#00D9FF] transition-all duration-300 h-full overflow-hidden flex flex-col">
+                  {p.image && (
+                    <img
+                      src={`/images/projects/${p.image}`}
+                      alt={p.title}
+                      className="w-full aspect-video object-cover"
+                    />
                   )}
-                  {!p.confidential && p.github && (
-                    <a href={p.github} target="_blank" rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A0E27] border border-[#00D9FF]/40 text-[#00D9FF] text-sm hover:bg-[#00D9FF]/10 transition-all">
-                      <FaGithub /> GitHub
-                    </a>
-                  )}
-                  {p.demo && (
-                    <a href={p.demo} target="_blank" rel="noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm hover:opacity-90 transition-all">
-                      <FaExternalLinkAlt /> Demo
-                    </a>
-                  )}
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex justify-between items-start mb-3">
+                      <h2 className="text-white font-bold text-lg leading-tight font-display">{p.title}</h2>
+                      <span className="text-xs px-2 py-1 rounded-full text-white ml-2 shrink-0 font-semibold" style={{ backgroundColor: p.badgeColor }}>
+                        {p.badge}
+                      </span>
+                    </div>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {p.tech.map((t, j) => (
+                        <span key={j} className="text-xs px-2 py-1 rounded-full bg-[#667EEA]/20 text-[#667EEA] font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <div className="flex gap-3 mt-auto">
+                      {p.confidential && (
+                        <span className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm font-semibold">
+                          Code confidentiel - Projet client
+                        </span>
+                      )}
+                      {!p.confidential && p.github && (
+                        <motion.a whileHover={{ y: -2 }} href={p.github} target="_blank" rel="noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0A0E27] border border-[#00D9FF]/40 text-[#00D9FF] text-sm hover:bg-[#00D9FF]/10 transition-all">
+                          <FaGithub /> GitHub
+                        </motion.a>
+                      )}
+                      {p.demo && (
+                        <motion.a whileHover={{ y: -2 }} href={p.demo} target="_blank" rel="noreferrer"
+                          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#00D9FF] to-[#667EEA] text-white text-sm hover:opacity-90 transition-all">
+                          <FaExternalLinkAlt /> Demo
+                        </motion.a>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </SpotlightCard>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCode, FaBrain, FaMicrophone, FaCog, FaChartBar, FaDatabase, FaRocket } from 'react-icons/fa';
 import AnimatedSection from './AnimatedSection';
+import SpotlightCard from './SpotlightCard';
 
 const skillGroups = [
   { title: 'Langages', icon: FaCode, skills: ['Python', 'SQL', 'JavaScript', 'Bash', 'HTML/CSS'] },
@@ -17,7 +18,7 @@ function Skills() {
   return (
     <div className="max-w-5xl mx-auto">
       <motion.h1
-        className="text-4xl font-black text-white mb-2"
+        className="text-4xl font-black text-white mb-2 font-display"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
       >
@@ -35,9 +36,10 @@ function Skills() {
           const Icon = group.icon;
           return (
             <AnimatedSection key={i} delay={i * 0.1} direction="zoom">
+              <SpotlightCard className="rounded-2xl h-full">
               <div className="bg-[#1A1F3A] rounded-2xl p-6 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300 h-full">
                 <Icon className="text-3xl text-[#00D9FF] mb-3" />
-                <h2 className="text-white font-bold text-lg mb-4">{group.title}</h2>
+                <h2 className="text-white font-bold text-lg mb-4 font-display">{group.title}</h2>
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill, j) => (
                     <motion.span
@@ -50,6 +52,7 @@ function Skills() {
                   ))}
                 </div>
               </div>
+              </SpotlightCard>
             </AnimatedSection>
           );
         })}

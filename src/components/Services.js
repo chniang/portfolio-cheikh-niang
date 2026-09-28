@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaRobot, FaCog, FaChartLine, FaMicrophone, FaDatabase, FaCode } from 'react-icons/fa';
 import AnimatedSection from './AnimatedSection';
+import SpotlightCard from './SpotlightCard';
 
 const services = [
   {
@@ -46,7 +47,7 @@ function Services({ setActivePage }) {
   return (
     <div className="max-w-5xl mx-auto">
       <motion.h1
-        className="text-4xl font-black text-white mb-2"
+        className="text-4xl font-black text-white mb-2 font-display"
         initial={{ opacity: 0, x: -30 }}
         animate={{ opacity: 1, x: 0 }}
       >
@@ -72,11 +73,12 @@ function Services({ setActivePage }) {
           const Icon = s.icon;
           return (
             <AnimatedSection key={i} delay={i * 0.1} direction="up">
+              <SpotlightCard className="rounded-2xl h-full">
               <div className="bg-[#1A1F3A] rounded-2xl p-6 border border-[#00D9FF]/20 hover:border-[#00D9FF] hover:-translate-y-2 transition-all duration-300 h-full">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00D9FF]/20 to-[#667EEA]/20 flex items-center justify-center mb-4">
                   <Icon className="text-2xl text-[#00D9FF]" />
                 </div>
-                <h2 className="text-white font-bold text-lg mb-3">{s.title}</h2>
+                <h2 className="text-white font-bold text-lg mb-3 font-display">{s.title}</h2>
                 <p className="text-gray-400 text-sm leading-relaxed mb-4">{s.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.tags.map((tag, j) => (
@@ -84,6 +86,7 @@ function Services({ setActivePage }) {
                   ))}
                 </div>
               </div>
+              </SpotlightCard>
             </AnimatedSection>
           );
         })}
