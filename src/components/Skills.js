@@ -1,17 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCode, FaBrain, FaMicrophone, FaCog, FaChartBar, FaDatabase, FaRocket } from 'react-icons/fa';
+import { FaCode, FaBrain, FaMicrophone, FaCog, FaChartBar, FaDatabase, FaRocket, FaLayerGroup } from 'react-icons/fa';
 import AnimatedSection from './AnimatedSection';
 import SpotlightCard from './SpotlightCard';
 
 const skillGroups = [
-  { title: 'Langages', icon: FaCode, skills: ['Python', 'SQL', 'JavaScript', 'Bash', 'HTML/CSS'] },
+  { title: 'Langages', icon: FaCode, skills: ['Python', 'SQL', 'Bash', 'HTML/CSS'] },
   { title: 'Machine Learning', icon: FaBrain, skills: ['Scikit-learn', 'LightGBM', 'TensorFlow', 'Regression', 'Classification', 'Feature Engineering'] },
-  { title: 'NLP et Voice AI', icon: FaMicrophone, skills: ['Transformers HuggingFace', 'Whisper', 'Groq API', 'Prompt Engineering', 'TextBlob', 'Voice AI'] },
+  { title: 'Frameworks', icon: FaLayerGroup, skills: ['Django', 'Flask', 'PyTorch', 'Streamlit', 'Gradio'] },
+  { title: 'NLP et Voice AI', icon: FaMicrophone, skills: ['Transformers HuggingFace', 'Whisper', 'SpeechT5', 'LLM', 'NVIDIA Build', 'Prompt Engineering', 'TextBlob', 'Voice AI'] },
   { title: 'APIs et Automatisation', icon: FaCog, skills: ['Twilio Voice API', 'APIs REST', 'Open-Meteo API'] },
-  { title: 'Data et Visualisation', icon: FaChartBar, skills: ['Pandas', 'NumPy', 'Plotly', 'Matplotlib', 'Seaborn', 'Streamlit', 'Gradio'] },
+  { title: 'Data et Visualisation', icon: FaChartBar, skills: ['Pandas', 'NumPy', 'Plotly', 'Matplotlib', 'Seaborn'] },
   { title: 'Bases de donnees', icon: FaDatabase, skills: ['PostgreSQL', 'MySQL', 'SQLite', 'Supabase', 'SQLAlchemy'] },
-  { title: 'DevOps et Deploiement', icon: FaRocket, skills: ['Git', 'GitHub', 'Vercel', 'HuggingFace Spaces', 'Flask', 'ngrok', 'VS Code', 'Jupyter'] },
+  { title: 'DevOps et Deploiement', icon: FaRocket, skills: ['Git', 'GitHub', 'Vercel', 'HuggingFace Spaces', 'ngrok', 'VS Code', 'Jupyter'] },
 ];
 
 function Skills() {
