@@ -4,14 +4,14 @@ import { FaAward } from 'react-icons/fa';
 import AnimatedSection from './AnimatedSection';
 import SpotlightCard from './SpotlightCard';
 
-// Ajouter `date` ("Mois AAAA") et `url` (lien de verification) quand ils sont confirmes.
+// Dates et liens verifies sur les certificats originaux.
 const certifications = [
-  { title: 'Data Scientist Bootcamp - Certificate of Completion', issuer: 'GOMYCODE', topic: 'Data Science' },
-  { title: 'Python', issuer: 'GOMYCODE', topic: 'Programmation' },
-  { title: 'Python', issuer: 'DataCamp', topic: 'Programmation' },
-  { title: 'Introduction to Data Analytics', issuer: 'IBM (Coursera)', topic: 'Data Analytics' },
-  { title: 'What is Data Science?', issuer: 'IBM (Coursera)', topic: 'Data Science' },
-  { title: 'Foundations: Data, Data, Everywhere', issuer: 'Google (Coursera)', topic: 'Data Analytics' },
+  { title: 'Foundations: Data, Data, Everywhere', issuer: 'Google (Coursera)', topic: 'Data Analytics', date: 'Oct. 2026', url: 'https://coursera.org/verify/M15MQVN8894F' },
+  { title: 'Data Scientist Bootcamp', issuer: 'GOMYCODE', topic: 'Data Science', date: 'Fev. 2026' },
+  { title: 'What is Data Science?', issuer: 'IBM (Coursera)', topic: 'Data Science', date: 'Juil. 2025', url: 'https://coursera.org/verify/BEVNL32CDXQW' },
+  { title: 'Introduction to Data Analytics', issuer: 'IBM (Coursera)', topic: 'Data Analytics', date: 'Juil. 2025', url: 'https://coursera.org/verify/X53LZHFI83EI' },
+  { title: 'Introduction to Python', issuer: 'DataCamp', topic: 'Python', date: 'Mai 2025' },
+  { title: 'Python Essentials', issuer: 'GOMYCODE', topic: 'Python', date: 'Oct. 2024' },
 ];
 
 function Certifications() {

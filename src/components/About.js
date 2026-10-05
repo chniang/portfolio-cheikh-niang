@@ -8,8 +8,8 @@ const cards = [
     Icon: FaGraduationCap,
     title: 'Formation',
     items: [
-      'Certification Data Science - GOMYCODE (2024-2025)',
-      'Certification Python - GOMYCODE (2024-2025)',
+      'Data Scientist Bootcamp - GOMYCODE (2026)',
+      'Python Essentials - GOMYCODE (2024)',
       'Licence Physique-Chimie et Sciences de la Matiere - UCAD (2017-2022)',
     ],
   },
