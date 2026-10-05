@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaHome, FaUser, FaCode, FaStar, FaEnvelope, FaTools } from 'react-icons/fa';
+import { FaHome, FaUser, FaCode, FaStar, FaEnvelope, FaTools, FaAward } from 'react-icons/fa';
 
 const navItems = [
   { id: 'home', label: 'Accueil', icon: FaHome },
   { id: 'about', label: 'About', icon: FaUser },
   { id: 'projects', label: 'Projects', icon: FaCode },
   { id: 'skills', label: 'Skills', icon: FaStar },
+  { id: 'certifications', label: 'Certifications', icon: FaAward },
   { id: 'services', label: 'Services', icon: FaTools },
   { id: 'contact', label: 'Contact', icon: FaEnvelope },
 ];

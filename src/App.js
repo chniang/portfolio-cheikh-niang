@@ -4,6 +4,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
+import Certifications from './components/Certifications';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import Navbar from './components/Navbar';
@@ -18,6 +19,7 @@ function App() {
     about: <About />,
     projects: <Projects />,
     skills: <Skills />,
+    certifications: <Certifications />,
     services: <Services setActivePage={setActivePage} />,
     contact: <Contact />,
   };
