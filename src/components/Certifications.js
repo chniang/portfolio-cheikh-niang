@@ -6,12 +6,12 @@ import SpotlightCard from './SpotlightCard';
 
 // Dates et liens verifies sur les certificats originaux.
 const certifications = [
-  { title: 'Foundations: Data, Data, Everywhere', issuer: 'Google (Coursera)', topic: 'Data Analytics', date: 'Oct. 2026', url: 'https://coursera.org/verify/M15MQVN8894F' },
-  { title: 'Data Scientist Bootcamp', issuer: 'GOMYCODE', topic: 'Data Science', date: 'Fev. 2026' },
-  { title: 'What is Data Science?', issuer: 'IBM (Coursera)', topic: 'Data Science', date: 'Juil. 2025', url: 'https://coursera.org/verify/BEVNL32CDXQW' },
-  { title: 'Introduction to Data Analytics', issuer: 'IBM (Coursera)', topic: 'Data Analytics', date: 'Juil. 2025', url: 'https://coursera.org/verify/X53LZHFI83EI' },
-  { title: 'Introduction to Python', issuer: 'DataCamp', topic: 'Python', date: 'Mai 2025' },
-  { title: 'Python Essentials', issuer: 'GOMYCODE', topic: 'Python', date: 'Oct. 2024' },
+  { title: 'Foundations: Data, Data, Everywhere', issuer: 'Google (Coursera)', topic: 'Data Analytics', date: 'Oct. 2026', url: 'https://coursera.org/share/d4819f0199fefbb8888003d7cec3f83c' },
+  { title: 'Data Scientist Bootcamp', issuer: 'GOMYCODE', topic: 'Data Science', date: 'Fev. 2026', url: 'https://diploma.gomycode.app/?id=31770667285019915' },
+  { title: 'What is Data Science?', issuer: 'IBM (Coursera)', topic: 'Data Science', date: 'Juil. 2025', url: 'https://coursera.org/share/505c5db4d5b0b445036c3aca347dccf4' },
+  { title: 'Introduction to Data Analytics', issuer: 'IBM (Coursera)', topic: 'Data Analytics', date: 'Juil. 2025', url: 'https://coursera.org/share/763bf1a6c3de6b322ce144e9993c58ed' },
+  { title: 'Introduction to Python', issuer: 'DataCamp', topic: 'Python', date: 'Mai 2025', url: 'https://www.datacamp.com/completed/statement-of-accomplishment/course/fea61969e8a2da401bc82cc2973bce96800f5b9a' },
+  { title: 'Python Essentials', issuer: 'GOMYCODE', topic: 'Python', date: 'Oct. 2024', url: 'https://diploma.gomycode.app/?id=31730037613460240' },
 ];
 
 function Certifications() {
